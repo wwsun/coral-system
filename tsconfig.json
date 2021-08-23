@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "esnext",
+    "declaration": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": false,
+    "allowJs": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "outDir": "dist/",
+    "baseUrl": ".",
+    "paths": {
+      "coral": ["src/index.ts"]
+    }
+  },
+  "include": ["./src", "./docs"],
+  "exclude": ["**/__tests__/**/*"]
+}
