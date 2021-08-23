@@ -18,7 +18,7 @@
     "outDir": "dist/",
     "baseUrl": ".",
     "paths": {
-      "coral": ["src/index.ts"]
+      "coral-system": ["src/index.ts"]
     }
   },
   "include": ["./src", "./docs"],

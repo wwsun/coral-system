@@ -1,4 +1,4 @@
-# coral
+# coral-system
 
 React primitve ui components built with styled-system
 

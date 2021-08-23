@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from 'coral';
+import { Box } from 'coral-system';
 
 export default {
   title: 'Basic',
