@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wwsun/coral.git"
+    "url": "git+https://github.com/wwsun/coral-system.git"
   },
   "keywords": [
     "react",
@@ -26,9 +26,9 @@
   "author": "ww.sun@outlook.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wwsun/coral/issues"
+    "url": "https://github.com/wwsun/coral-system/issues"
   },
-  "homepage": "https://github.com/wwsun/coral#readme",
+  "homepage": "https://github.com/wwsun/coral-system#readme",
   "peerDependencies": {
     "react": "16.x || 17.x",
     "styled-components": "4.x || 5.x"
