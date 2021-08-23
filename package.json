@@ -1,6 +1,6 @@
 {
   "name": "coral",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "react primitive ui components built with styled system",
   "main": "index.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "@types/lodash": "^4.14.172",
     "@types/react": "^17.0.16",
     "@types/styled-components": "^5.1.12",
+    "@types/styled-system": "^5.1.13",
     "babel-plugin-styled-components": "^1.13.2",
     "react": "^17.0.2",
     "tsconfig-paths-webpack-plugin": "^3.5.1",
