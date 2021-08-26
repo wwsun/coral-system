@@ -34,7 +34,10 @@
     "styled-components": "4.x || 5.x"
   },
   "dependencies": {
-    "styled-system": "^5.1.5"
+    "@emotion/is-prop-valid": "^1.1.0",
+    "@emotion/memoize": "^0.7.5",
+    "csstype": "^3.0.8",
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.0",
@@ -43,11 +46,10 @@
     "@storybook/addons": "^6.3.7",
     "@storybook/react": "^6.3.7",
     "@types/jest": "^26.0.24",
-    "@types/lodash": "^4.14.172",
+    "@types/lodash-es": "^4.17.4",
     "@types/react": "^17.0.16",
     "@types/react-dom": "^17.0.9",
     "@types/styled-components": "^5.1.12",
-    "@types/styled-system": "^5.1.13",
     "babel-plugin-styled-components": "^1.13.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

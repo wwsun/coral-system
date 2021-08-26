@@ -1,3 +1,3 @@
-export * from './box';
-export * from './text';
+export * from './core';
 export * from './theme';
+export * from './components';
