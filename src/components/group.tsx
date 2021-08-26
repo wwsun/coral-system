@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { StringOrNumber } from '../types';
 import { space } from '../helpers';
-import { Box, BoxProps } from './Box';
+import { Box, BoxProps } from './box';
 
 const attachedStyle = css`
   > *:first-child:not(:last-child) {

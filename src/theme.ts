@@ -1,8 +1,4 @@
-import { Theme } from 'styled-system';
-
-export { Theme };
-
-export const defaultTheme: Theme = {
+export const defaultTheme = {
   colors: {
     primary: {
       10: '#f0f5ff',
