@@ -33,4 +33,10 @@ $ yarn
 
 # start
 $ yarn start
+
+# Change version
+$ yarn version
+
+# publish
+$ npm publish
 ```
