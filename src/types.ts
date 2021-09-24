@@ -26,6 +26,7 @@ export type BorderTokenType = 'solid' | 'dashed';
 export type RadiiTokenType = 's' | 'm' | 'l';
 export type ShadowTokenType = 'lowUp' | 'lowDown' | 'lowLeft' | 'lowRight' | 'median' | 'high';
 
+// TODO: FIXME
 type SpaceTokenValue = SpaceTokenType | StringOrNumber;
 
 export interface SpaceProps {

@@ -1,6 +1,15 @@
 # coral-system
 
-React primitve ui components built with styled-system
+一个轻量级的 React 原子组件库，为上层提供灵活和轻量级的样式布局方案。
+
+## Features
+
+- [x] 支持 css in js
+- [x] 支持 css variables
+- [x] 支持 prefix 自定义
+- [x] 提供标准化的 Design Token 支持
+- [ ] 提供 FusionDesign 主题的导入支持
+- [ ] 响应式支持
 
 ## Usage
 
@@ -8,9 +17,11 @@ React primitve ui components built with styled-system
 import { Box, SystemProvider } from 'coral-system';
 
 function App() {
-  return (<SystemProvider>
-    <Box>hello</Box>
-  </SystemProvider>)
+  return (
+    <SystemProvider prefix="--coral" theme={YOUR_THEME}>
+      <Box>hello</Box>
+    </SystemProvider>
+  );
 }
 ```
 
@@ -23,11 +34,3 @@ $ yarn
 # start
 $ yarn start
 ```
-
-## Todo
-
-- [x] 自定义 styled system 解析
-- [x] 支持 css variables
-- [x] 支持主题内 tokens 的嵌套调用
-- [x] 自定义 ThemeProvider
-- [ ] 支持自定义主题 token 解析
