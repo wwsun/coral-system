@@ -1,5 +1,5 @@
 import { mergeWith } from 'lodash';
-import { PartialRecord } from './types';
+import { PartialRecord, SpaceTokenType, FontSizeTokenType, BorderTokenType, RadiiTokenType, ShadowTokenType } from './types';
 
 type ColorTokenSerialKeyType = 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100;
 type ColorTokenGroupType = PartialRecord<ColorTokenSerialKeyType, string>;
@@ -20,11 +20,11 @@ type ThemeColorsType = {
 
 export type ThemeType = {
   colors?: ThemeColorsType;
-  space?: PartialRecord<'s' | 'm' | 'l' | 'xl' | 'xxl', string>;
-  fontSizes?: PartialRecord<'note' | 'body' | 'subtitle' | 'title' | 'subheader' | 'header', string>;
-  borders?: PartialRecord<'solid' | 'dashed', string>;
-  radii?: PartialRecord<'s' | 'm' | 'l', string>;
-  shadows?: PartialRecord<'lowUp' | 'lowDown' | 'lowLeft' | 'lowRight' | 'median' | 'high', string>;
+  space?: PartialRecord<SpaceTokenType, string>;
+  fontSizes?: PartialRecord<FontSizeTokenType, string>;
+  borders?: PartialRecord<BorderTokenType, string>;
+  radii?: PartialRecord<RadiiTokenType, string>;
+  shadows?: PartialRecord<ShadowTokenType, string>;
 };
 
 export const defaultTheme: ThemeType = {

@@ -21,6 +21,10 @@ export type SystemScaleType =
   | 'components';
 
 export type SpaceTokenType = 's' | 'm' | 'l' | 'xl' | 'xxl';
+export type FontSizeTokenType = 'note' | 'body' | 'subtitle' | 'title' | 'subheader' | 'header';
+export type BorderTokenType = 'solid' | 'dashed';
+export type RadiiTokenType = 's' | 'm' | 'l';
+export type ShadowTokenType = 'lowUp' | 'lowDown' | 'lowLeft' | 'lowRight' | 'median' | 'high';
 
 type SpaceTokenValue = SpaceTokenType | StringOrNumber;
 
@@ -82,7 +86,7 @@ export interface TypographyProps {
   fontStyle?: CSS.Property.FontStyle;
   letterSpacing?: CSS.Property.LetterSpacing;
   textAlign?: CSS.Property.TextAlign;
-  fontSize?: string;
+  fontSize?: FontSizeTokenType | string;
   fontWeight?: CSS.Property.FontWeight;
   lineHeight?: StringOrNumber;
 }
@@ -120,19 +124,22 @@ export interface GridProps {
   gridTemplateAreas?: CSS.Property.GridTemplateAreas;
 }
 
+type BorderTokenValue = BorderTokenType | string;
+type BorderRadiusValue = RadiiTokenType | string;
+
 export interface BorderProps {
-  border?: string;
-  borderTop?: string;
-  borderRight?: string;
-  borderBottom?: string;
-  borderLeft?: string;
+  border?: BorderTokenValue;
+  borderTop?: BorderTokenValue;
+  borderRight?: BorderTokenValue;
+  borderBottom?: BorderTokenValue;
+  borderLeft?: BorderTokenValue;
   borderWidth?: StringOrNumber;
   borderColor?: CSS.Property.Color;
   borderTopColor?: CSS.Property.Color;
   borderRightColor?: CSS.Property.Color;
   borderBottomColor?: CSS.Property.Color;
   borderLeftColor?: CSS.Property.Color;
-  borderRadius?: string;
+  borderRadius?: BorderRadiusValue;
 }
 
 export interface PositionProps {
@@ -144,7 +151,9 @@ export interface PositionProps {
   left?: string;
 }
 
+type BoxShadowValue = ShadowTokenType | CSS.Property.BoxShadow;
+
 export interface ShadowProps {
-  boxShadow?: CSS.Property.BoxShadow;
+  boxShadow?: BoxShadowValue;
   textShadow?: CSS.Property.TextShadow;
 }
