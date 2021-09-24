@@ -1,5 +1,35 @@
-export const defaultTheme = {
+import { mergeWith } from 'lodash';
+import { PartialRecord } from './types';
+
+type ColorTokenSerialKeyType = 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100;
+type ColorTokenGroupType = PartialRecord<ColorTokenSerialKeyType, string>;
+type ThemeColorsType = {
+  primary?: ColorTokenGroupType;
+  gray?: ColorTokenGroupType;
+  error?: ColorTokenGroupType;
+  success?: ColorTokenGroupType;
+  warning?: ColorTokenGroupType;
+  black?: string;
+  white?: string;
+  brand?: string;
+  highlight?: string;
+  text?: PartialRecord<'normal' | 'secondary', string>;
+  background?: PartialRecord<'normal', string>;
+  line?: PartialRecord<'normal', string>;
+};
+
+export type ThemeType = {
+  colors?: ThemeColorsType;
+  space?: PartialRecord<'s' | 'm' | 'l' | 'xl' | 'xxl', string>;
+  fontSizes?: PartialRecord<'note' | 'body' | 'subtitle' | 'title' | 'subheader' | 'header', string>;
+  borders?: PartialRecord<'solid' | 'dashed', string>;
+  radii?: PartialRecord<'s' | 'm' | 'l', string>;
+  shadows?: PartialRecord<'lowUp' | 'lowDown' | 'lowLeft' | 'lowRight' | 'median' | 'high', string>;
+};
+
+export const defaultTheme: ThemeType = {
   colors: {
+    // 主色序列
     primary: {
       10: '#f0f5ff',
       20: '#d6e4ff',
@@ -12,7 +42,7 @@ export const defaultTheme = {
       90: '#061178',
       100: '#030852',
     },
-    // secondary: {},
+    // 灰色序列
     gray: {
       10: '#f5f5f5',
       20: '#f0f0f0',
@@ -25,7 +55,8 @@ export const defaultTheme = {
       90: '#1f1f1f',
       100: '#141414',
     },
-    red: {
+    // 警告色序列
+    error: {
       10: '#fff2f0',
       20: '#ffedeb',
       30: '#ffc8c2',
@@ -37,7 +68,8 @@ export const defaultTheme = {
       90: '#78101a',
       100: '#520A13',
     },
-    green: {
+    // 成功色序列
+    success: {
       10: '#e4f2e5',
       20: '#d3e6d6',
       30: '#a5d9ae',
@@ -49,7 +81,8 @@ export const defaultTheme = {
       90: '#08401e',
       100: '#031a0c',
     },
-    yellow: {
+    // 警告色序列
+    warning: {
       10: '#fffbe6',
       20: '#ffeda3',
       30: '#ffe07a',
@@ -61,9 +94,21 @@ export const defaultTheme = {
       90: '#8c4f00',
       100: '#663600',
     },
-    // emphasis: {},
-    // text: {},
-    // fill: {},
+    // 品牌色
+    black: '#000',
+    white: '#FFF',
+    brand: 'colors.primary.60',
+    highlight: 'colors.error.50',
+    text: {
+      normal: 'rgba(0, 0, 0, 0.85)',
+      secondary: 'rgba(0, 0, 0, 0.45)',
+    },
+    background: {
+      normal: 'colors.gray.10',
+    },
+    line: {
+      normal: 'colors.gray.30',
+    },
   },
   space: {
     s: '4px',
@@ -80,7 +125,6 @@ export const defaultTheme = {
     subheader: '20px',
     header: '24px',
   },
-  sizes: {},
   borders: {
     solid: '1px solid',
     dashed: '1px dashed',
@@ -100,6 +144,24 @@ export const defaultTheme = {
     lowRight:
       '6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05), 12px 0 48px 16px rgba(0, 0, 0, 0.03)',
     median: '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)',
-    // high: '',
+    high: '',
   },
 };
+
+/**
+ * 修改默认主题
+ * @param overrides
+ * @param baseTheme
+ * @returns
+ */
+export function extendTheme(overrides: ThemeType, baseTheme = defaultTheme) {
+  return mergeWith({}, baseTheme, overrides);
+}
+
+extendTheme({
+  colors: {
+    primary: {
+      10: '#Fff',
+    },
+  },
+});

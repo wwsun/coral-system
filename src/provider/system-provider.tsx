@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useMemo } from 'react';
-import { defaultTheme } from '../theme';
+import { defaultTheme, ThemeType } from '../theme';
 import { getTokenValue, isValidTokenPath, tokenVar } from '../helpers';
 import { CssVariables } from './global-styles';
 
@@ -18,7 +18,7 @@ export const useTheme = () => {
   };
 };
 
-function themeToVariables(obj: any, prefix = '--coral') {
+function themeToVariables(obj: ThemeType, prefix: string) {
   let paths: string[][] = [];
 
   Object.keys(obj).forEach((key) => {
@@ -40,13 +40,21 @@ function themeToVariables(obj: any, prefix = '--coral') {
 }
 
 export interface SystemProviderProps {
-  theme?: any;
+  /**
+   * css variable 的前缀
+   * @example --coral
+   */
+  prefix?: string;
+  /**
+   * 自定义 theme 对象
+   */
+  theme?: ThemeType;
   children?: React.ReactNode;
 }
 
-export function SystemProvider({ theme = defaultTheme, children }: SystemProviderProps) {
+export function SystemProvider({ prefix = '--coral', theme = defaultTheme, children }: SystemProviderProps) {
   const context = useMemo(() => ({ theme }), [theme]);
-  const variables = useMemo(() => themeToVariables(theme), [theme]);
+  const variables = useMemo(() => themeToVariables(theme, prefix), [theme, prefix]);
   return (
     <SystemContext.Provider value={context}>
       <CssVariables variables={variables} />

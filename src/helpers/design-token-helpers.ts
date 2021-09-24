@@ -73,7 +73,7 @@ export function tokenVar(token: string, scale?: SystemScaleType) {
   // 最后尝试加入 scale 在 theme 中寻找
   if (scale) {
     const themedToken = [scale, token].join('.');
-    // TODO: 无法解析到扩展的 theme，最好的做法是放到 ThemeProvider 里通过 context 找
+    // TODO: 暂不支持解析到扩展 theme token，最好的做法是放到 ThemeProvider 里通过 context 找
     if (hasIn(defaultTheme, themedToken)) {
       return tokenPathToVariable(themedToken);
     }

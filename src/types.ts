@@ -2,6 +2,10 @@ import CSS from 'csstype';
 
 export type StringOrNumber = string | number;
 
+export type PartialRecord<K extends keyof any, T> = {
+  [P in K]?: T;
+};
+
 export type Length = string | 0 | number;
 
 export type SystemScaleType =
@@ -16,35 +20,39 @@ export type SystemScaleType =
   | 'zIndices'
   | 'components';
 
+export type SpaceTokenType = 's' | 'm' | 'l' | 'xl' | 'xxl';
+
+type SpaceTokenValue = SpaceTokenType | StringOrNumber;
+
 export interface SpaceProps {
-  m?: StringOrNumber;
-  margin?: StringOrNumber;
-  mt?: StringOrNumber;
-  marginTop?: StringOrNumber;
-  mr?: StringOrNumber;
-  marginRight?: StringOrNumber;
-  mb?: StringOrNumber;
-  marginBottom?: StringOrNumber;
-  ml?: StringOrNumber;
-  marginLeft?: StringOrNumber;
-  mx?: StringOrNumber;
-  marginX?: StringOrNumber;
-  my?: StringOrNumber;
-  marginY?: StringOrNumber;
-  p?: StringOrNumber;
-  padding?: StringOrNumber;
-  pt?: StringOrNumber;
-  paddingTop?: StringOrNumber;
-  pr?: StringOrNumber;
-  paddingRight?: StringOrNumber;
-  pb?: StringOrNumber;
-  paddingBottom?: StringOrNumber;
-  pl?: StringOrNumber;
-  paddingLeft?: StringOrNumber;
-  px?: StringOrNumber;
-  paddingX?: StringOrNumber;
-  py?: StringOrNumber;
-  paddingY?: StringOrNumber;
+  m?: SpaceTokenValue;
+  margin?: SpaceTokenValue;
+  mt?: SpaceTokenValue;
+  marginTop?: SpaceTokenValue;
+  mr?: SpaceTokenValue;
+  marginRight?: SpaceTokenValue;
+  mb?: SpaceTokenValue;
+  marginBottom?: SpaceTokenValue;
+  ml?: SpaceTokenValue;
+  marginLeft?: SpaceTokenValue;
+  mx?: SpaceTokenValue;
+  marginX?: SpaceTokenValue;
+  my?: SpaceTokenValue;
+  marginY?: SpaceTokenValue;
+  p?: SpaceTokenValue;
+  padding?: SpaceTokenValue;
+  pt?: SpaceTokenValue;
+  paddingTop?: SpaceTokenValue;
+  pr?: SpaceTokenValue;
+  paddingRight?: SpaceTokenValue;
+  pb?: SpaceTokenValue;
+  paddingBottom?: SpaceTokenValue;
+  pl?: SpaceTokenValue;
+  paddingLeft?: SpaceTokenValue;
+  px?: SpaceTokenValue;
+  paddingX?: SpaceTokenValue;
+  py?: SpaceTokenValue;
+  paddingY?: SpaceTokenValue;
 }
 
 export interface ColorProps {
