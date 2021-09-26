@@ -51,5 +51,5 @@ $ git push --tags
 deploy to github pages
 
 ```bash
-$ yarn deploy-storybook
+$ yarn story:deploy
 ```
