@@ -13,7 +13,12 @@ const renderBorders = (value: string) => (
 const renderRadii = (value: string) => (
   <Box display="inline-block" size="32px" bg="brand" border="solid" borderColor="brand" borderRadius={value} />
 );
-const renderShadows = (value: string) => (<Box height="32px" width="60px" bg="white" boxShadow={value}></Box>)
+const renderShadows = (value: string) => <Box height="32px" width="60px" bg="white" boxShadow={value}></Box>;
+const renderSpace = (value: string) => (<Flex display="inline-flex" spacing={value}>
+  {renderColor('brand')}
+  {renderColor('brand')}
+  {renderColor('brand')}
+</Flex>)
 
 const renderMap = {
   colors: renderColor,
@@ -21,6 +26,7 @@ const renderMap = {
   borders: renderBorders,
   radii: renderRadii,
   shadows: renderShadows,
+  space: renderSpace,
   default: (): React.ReactNode => null,
 };
 

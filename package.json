@@ -10,7 +10,7 @@
   "scripts": {
     "preversion": "yarn build",
     "prepublishOnly": "yarn clean && yarn build",
-    "start": "start-storybook -p 6006",
+    "start": "start-storybook -p 8008",
     "build": "yarn build:esm",
     "build:esm": "tsc --project tsconfig.prod.json --outDir dist/esm/ --module ES2015",
     "clean": "rimraf dist/",
