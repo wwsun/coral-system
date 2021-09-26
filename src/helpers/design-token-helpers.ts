@@ -150,7 +150,15 @@ export const sizes = tokenGetterFactory('sizes', sizeGetter);
 export const space = tokenGetterFactory('space', sizeGetter);
 export const radii = tokenGetterFactory('radii', sizeGetter);
 export const fontSizes = tokenGetterFactory('fontSizes', sizeGetter);
-export const lineHeights = tokenGetterFactory('lineHeights', sizeGetter);
+export const lineHeights = tokenGetterFactory('lineHeights', (token: string) => {
+  if (typeof token === 'number') {
+    return token;
+  }
+  if (typeof token === 'string' && SIZE_UNIT_VALUE.test(token)) {
+    return token;
+  }
+  return;
+});
 
 /**
  * 获取 value 的真实值
