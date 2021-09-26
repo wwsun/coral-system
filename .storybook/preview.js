@@ -2,7 +2,7 @@ import { SystemProvider } from 'coral-system';
 
 const withSystemProvider = (Story, context) => {
 
-  return (<SystemProvider>
+  return (<SystemProvider prefix="--tango">
     <Story {...context} />
   </SystemProvider>)
 };

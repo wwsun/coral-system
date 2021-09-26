@@ -1,5 +1,5 @@
 import { assign } from 'lodash-es';
-import { tokenVar, sizes, lineHeights, colors, shadows, borders } from '../helpers';
+import { getToken, sizes, lineHeights, colors, shadows, borders } from '../helpers';
 import { SystemScaleType } from '../types';
 
 const getRawValue = (value: any) => value;
@@ -13,7 +13,7 @@ const getValueMap = {
   borders,
   radii: sizes,
   shadows,
-  zIndices: tokenVar,
+  zIndices: getToken,
 };
 
 export const system = (args: any) => {
@@ -52,6 +52,8 @@ function createParser(config: any) {
   const parse = (props: any) => {
     const styles = {};
 
+    const prefix = props.theme?.prefix || '--coral';
+
     for (const key in props) {
       if (!config[key]) continue;
 
@@ -62,7 +64,7 @@ function createParser(config: any) {
       // TODO: raw is object
       // TODO: raw is responsive object
 
-      assign(styles, sx(raw, scale));
+      assign(styles, sx(raw, scale, prefix));
     }
 
     return styles;
@@ -97,9 +99,9 @@ export type StylePropConfig = Record<string, StyleProp | boolean>;
 function createStyleFunction({ properties: propertiesProp, property, scale, getValue: getValueProp }: StyleProp) {
   const properties = propertiesProp || [property];
   const getValue = getValueProp || getValueMap[scale] || getRawValue;
-  const sx = (value: any, scale: string) => {
+  const sx = (value: any, scale: string, prefix: string) => {
     const result = {};
-    const n = getValue(value, scale);
+    const n = getValue(value, scale, prefix);
     if (n === null) {
       return;
     }

@@ -1,9 +1,13 @@
 import React, { createContext, useContext, useMemo } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { assign } from 'lodash-es';
 import { defaultTheme, ThemeType } from '../theme';
-import { getTokenValue, isValidTokenPath, tokenVar } from '../helpers';
+import { getTokenValue, isValidTokenPath, getToken, DEFAULT_PREFIX } from '../helpers';
+import { SystemScaleType } from '../types';
 import { CssVariables } from './global-styles';
 
 const SystemContext = createContext({
+  prefix: DEFAULT_PREFIX,
   theme: defaultTheme,
 });
 
@@ -18,6 +22,16 @@ export const useTheme = () => {
   };
 };
 
+/**
+ * 获取 css variable 的根节点，例如 --tango-colors-brand 返回 --tango
+ * @param str
+ * @returns
+ */
+const getRootPrefix = (str: string) => {
+  const input = str.startsWith('--') ? str.slice(2) : str;
+  return ['--', input.split('-')[0]].join('');
+};
+
 function themeToVariables(obj: ThemeType, prefix: string) {
   let paths: string[][] = [];
 
@@ -27,7 +41,9 @@ function themeToVariables(obj: ThemeType, prefix: string) {
       let val = obj[key];
 
       if (isValidTokenPath(val)) {
-        val = tokenVar(val);
+        const scale = val.split('.')[0] as SystemScaleType;
+        const rootPrefix = getRootPrefix(prefix);
+        val = getToken(val, scale, rootPrefix);
       }
 
       paths.push([keypath, val]);
@@ -52,13 +68,17 @@ export interface SystemProviderProps {
   children?: React.ReactNode;
 }
 
-export function SystemProvider({ prefix = '--coral', theme = defaultTheme, children }: SystemProviderProps) {
-  const context = useMemo(() => ({ theme }), [theme]);
+export function SystemProvider({ prefix = DEFAULT_PREFIX, theme = defaultTheme, children }: SystemProviderProps) {
+  const context = useMemo(() => ({ theme, prefix }), [theme, prefix]);
   const variables = useMemo(() => themeToVariables(theme, prefix), [theme, prefix]);
+  const themeProviderValue = useMemo(() => assign({}, theme, { prefix }), [theme, prefix]);
+
   return (
     <SystemContext.Provider value={context}>
-      <CssVariables variables={variables} />
-      {children}
+      <ThemeProvider theme={themeProviderValue}>
+        <CssVariables variables={variables} />
+        {children}
+      </ThemeProvider>
     </SystemContext.Provider>
   );
 }

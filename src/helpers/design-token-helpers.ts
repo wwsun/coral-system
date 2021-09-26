@@ -1,6 +1,8 @@
 import { get, hasIn, isNil } from 'lodash-es';
 import { defaultTheme } from '../theme';
-import { StringOrNumber, SystemScaleType } from '../types';
+import { SystemScaleType } from '../types';
+
+export const DEFAULT_PREFIX = '--coral';
 
 const hexRegex = /^#[a-fA-F0-9]{3,6}$/;
 const rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
@@ -46,82 +48,80 @@ export function isValidTokenPath(token: string) {
   return false;
 }
 
-const tokenPathToVariable = (token: string) => {
-  return `var(--coral-${token.split('.').join('-')})`;
+const tokenPathToVariable = (token: string, prefix: string) => {
+  return `var(${prefix}-${token.split('.').join('-')})`;
 };
 
-/**
- * 获取 token 对应的 css variable
- * @param token
- * @param scale 对应主题中的子类别
- */
-export function tokenVar(token: string, scale?: SystemScaleType) {
-  if (!token) {
-    return;
-  }
+type TokenGetterType = (token: string) => any;
 
-  // 优先检查符合 tokenPath 规范，符合规范的直接转换，不检查有效性
-  if (isValidTokenPath(token)) {
-    return tokenPathToVariable(token);
-  }
-
-  // 再检查是不是 css function，如果是，直接返回
-  if (CSS_FUNCTION_PATTERN.test(token)) {
-    return token;
-  }
-
-  // 最后尝试加入 scale 在 theme 中寻找
-  if (scale) {
-    const themedToken = [scale, token].join('.');
-    // TODO: 暂不支持解析到扩展 theme token，最好的做法是放到 ThemeProvider 里通过 context 找
-    if (hasIn(defaultTheme, themedToken)) {
-      return tokenPathToVariable(themedToken);
+function tokenGetterFactory(defaultScale?: SystemScaleType, getter?: TokenGetterType) {
+  return (token: string, scale: SystemScaleType = defaultScale, prefix = DEFAULT_PREFIX) => {
+    if (isNil(token)) {
+      return;
     }
-  }
 
-  // 不符合条件的直接返回
-  return token;
+    if (getter && typeof getter === 'function') {
+      const temp = getter(token);
+      if (!isNil(temp)) {
+        return temp;
+      }
+    }
+
+    // 优先检查符合 tokenPath 规范，符合规范的直接转换，不检查有效性
+    if (isValidTokenPath(token)) {
+      return tokenPathToVariable(token, prefix);
+    }
+
+    // 再检查是不是 css function，如果是，直接返回
+    if (CSS_FUNCTION_PATTERN.test(token)) {
+      return token;
+    }
+
+    // 最后尝试加入 scale 在 theme 中寻找
+    if (scale) {
+      const themedToken = [scale, token].join('.');
+      // TODO: 暂不支持解析到扩展 theme token，最好的做法是放到 ThemeProvider 里通过 context 找
+      if (hasIn(defaultTheme, themedToken)) {
+        return tokenPathToVariable(themedToken, prefix);
+      }
+    }
+
+    // 不符合条件的直接返回
+    return token;
+  };
 }
+
+/**
+ * 获取对应的 css variable token
+ */
+export const getToken = tokenGetterFactory();
 
 /**
  * color token to css variables
- * @param token
  */
-export function colors(token: string) {
+export const colors = tokenGetterFactory('colors', (token) => {
   if (hexRegex.test(token) || rgbRegex.test(token) || rgbaRegex.test(token)) {
     return token;
   }
+  return;
+});
 
-  return tokenVar(token, 'colors');
-}
-
-/**
- * borders token
- * @param token
- */
-export function borders(token: string) {
-  if (isNil(token)) {
-    return;
-  }
-
+export const borders = tokenGetterFactory('borders', (token) => {
   if (Number(token) === 0) {
     return 0;
   }
-
   if (token.split(' ').length > 1) {
     return token;
   }
+  return;
+});
 
-  return tokenVar(token, 'borders');
-}
-
-export function shadows(token: string) {
+export const shadows = tokenGetterFactory('shadows', (token) => {
   if (token && token.split(' ').length > 4) {
     return token;
   }
-
-  return tokenVar(token, 'shadows');
-}
+  return;
+});
 
 /**
  * 正则：匹配是否为有效的单位数值
@@ -130,12 +130,7 @@ export function shadows(token: string) {
  */
 const SIZE_UNIT_VALUE = /^\d+(\.\d+)?(px|vw|vh|%)$/;
 
-/**
- * sizes token to css variables
- * @param token
- * @param scale
- */
-export function sizes(token: StringOrNumber, scale: SystemScaleType = 'sizes') {
+const sizeGetter = (token: string) => {
   if (typeof token === 'number') {
     return `${token}px`;
   }
@@ -144,59 +139,14 @@ export function sizes(token: StringOrNumber, scale: SystemScaleType = 'sizes') {
     return token;
   }
 
-  return tokenVar(token, scale);
-}
+  return;
+};
 
-/**
- * lineHeights token to css variables
- * @param token
- * @returns
- */
-export function lineHeights(token: StringOrNumber) {
-  if (typeof token === 'number') {
-    return token;
-  }
-
-  if (typeof token === 'string' && SIZE_UNIT_VALUE.test(token)) {
-    return token;
-  }
-
-  return tokenVar(token, 'lineHeights');
-}
-
-/**
- * space token to css variables
- * @param token
- */
-export function space(token: StringOrNumber) {
-  return sizes(token, 'space');
-}
-
-/**
- * radii token
- * @param token
- */
-export function radii(token: StringOrNumber) {
-  return sizes(token, 'radii');
-}
-
-/**
- * fontSizes token
- * @param token
- */
-export function fontSizes(token?: StringOrNumber) {
-  return sizes(token, 'fontSizes');
-}
-
-/**
- * 获取组件级的自定义 token variable
- * @param token
- * @example getToken('Button.height')
- * @example getToken('Button.bg')
- */
-export function getToken(token: string) {
-  return tokenVar(token, 'components');
-}
+export const sizes = tokenGetterFactory('sizes', sizeGetter);
+export const space = tokenGetterFactory('space', sizeGetter);
+export const radii = tokenGetterFactory('radii', sizeGetter);
+export const fontSizes = tokenGetterFactory('fontSizes', sizeGetter);
+export const lineHeights = tokenGetterFactory('lineHeights', sizeGetter);
 
 /**
  * 获取 value 的真实值
