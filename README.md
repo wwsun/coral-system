@@ -1,6 +1,6 @@
 # coral-system
 
-一个轻量级的 React 原子组件库，为上层提供灵活和轻量级的样式布局方案。
+一个轻量级的样式系统和 React 布局原子组件库。
 
 文档地址：https://wwsun.github.io/coral-system/
 
@@ -41,6 +41,9 @@ $ yarn version
 
 # publish
 $ npm publish
+
+# push
+$ git push
 
 # push tags
 $ git push --tags
