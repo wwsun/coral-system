@@ -1,6 +1,6 @@
 import { get, hasIn, isNil } from 'lodash-es';
 import { defaultTheme } from '../theme';
-import { SystemScaleType } from '../types';
+import { StringOrNumber, SystemScaleType } from '../types';
 
 export const DEFAULT_PREFIX = '--coral';
 
@@ -52,10 +52,10 @@ const tokenPathToVariable = (token: string, prefix: string) => {
   return `var(${prefix}-${token.split('.').join('-')})`;
 };
 
-type TokenGetterType = (token: string) => any;
+type TokenGetterType = (token: any) => any;
 
 function tokenGetterFactory(defaultScale?: SystemScaleType, getter?: TokenGetterType) {
-  return (token: string, scale: SystemScaleType = defaultScale, prefix = DEFAULT_PREFIX) => {
+  return (token: StringOrNumber, scale: SystemScaleType = defaultScale, prefix = DEFAULT_PREFIX) => {
     if (isNil(token)) {
       return;
     }
@@ -65,6 +65,10 @@ function tokenGetterFactory(defaultScale?: SystemScaleType, getter?: TokenGetter
       if (!isNil(temp)) {
         return temp;
       }
+    }
+    
+    if (typeof token === 'number') {
+      return token;
     }
 
     // 优先检查符合 tokenPath 规范，符合规范的直接转换，不检查有效性
