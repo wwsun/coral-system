@@ -4,6 +4,8 @@ import { FlexItem, Flex, Box } from 'coral-system';
 
 export default {
   title: 'Flex',
+  component: Flex,
+  subcomponents: { FlexItem },
 };
 
 export const Basic = () => (

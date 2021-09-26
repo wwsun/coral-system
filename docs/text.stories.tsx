@@ -3,6 +3,7 @@ import { Text, Box, Flex } from 'coral-system';
 
 export default {
   title: 'Text',
+  component: Text,
 };
 
 export const Basic = () => (

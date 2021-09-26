@@ -3,6 +3,8 @@ import { Box, Grid, GridItem } from 'coral-system';
 
 export default {
   title: 'Grid',
+  component: Grid,
+  subcomponents: { GridItem },
 };
 
 /**

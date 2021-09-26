@@ -3,6 +3,7 @@ import { Box } from 'coral-system';
 
 export default {
   title: 'Box',
+  component: Box,
 };
 
 export const Basic = () => (

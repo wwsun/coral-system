@@ -2,6 +2,8 @@
 
 一个轻量级的 React 原子组件库，为上层提供灵活和轻量级的样式布局方案。
 
+文档地址：https://wwsun.github.io/coral-system/
+
 ## Features
 
 - [x] 支持 css in js
@@ -39,4 +41,15 @@ $ yarn version
 
 # publish
 $ npm publish
+
+# push tags
+$ git push --tags
+```
+
+## Deploy documents
+
+deploy to github pages
+
+```bash
+$ yarn deploy-storybook
 ```
