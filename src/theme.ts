@@ -1,5 +1,12 @@
 import { mergeWith } from 'lodash';
-import { PartialRecord, SpaceTokenType, FontSizeTokenType, BorderTokenType, RadiiTokenType, ShadowTokenType } from './types';
+import {
+  PartialRecord,
+  SpaceTokenType,
+  FontSizeTokenType,
+  BorderTokenType,
+  RadiiTokenType,
+  ShadowTokenType,
+} from './types';
 
 type ColorTokenSerialKeyType = 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100;
 type ColorTokenGroupType = PartialRecord<ColorTokenSerialKeyType, string>;
@@ -143,8 +150,24 @@ export const defaultTheme: ThemeType = {
       '-6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05), -12px 0 48px 16px rgba(0, 0, 0, 0.03)',
     lowRight:
       '6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05), 12px 0 48px 16px rgba(0, 0, 0, 0.03)',
-    median: '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)',
-    high: '',
+
+    medianUp:
+      '0px -4px 8px -4px rgba(0,0,0,0.12),0px -8px 16px 0px rgba(0,0,0,0.08),0px -12px 24px 8px rgba(0,0,0,0.04)',
+    medianRight:
+      '4px 0px 8px -4px rgba(0,0,0,0.12),8px 0px 16px 0px rgba(0,0,0,0.08),12px 0px 24px 8px rgba(0,0,0,0.04)',
+    medianDown:
+      '0px 4px 8px -4px rgba(0,0,0,0.12),0px 8px 16px 0px rgba(0,0,0,0.08),0px 12px 24px 8px rgba(0,0,0,0.04)',
+    medianLeft:
+      '-4px 0px 8px -4px rgba(0,0,0,0.12),-8px 0px 16px 0px rgba(0,0,0,0.08),-12px 0px 24px 8px rgba(0,0,0,0.04)',
+
+    highUp:
+      '0px -8px 16px -8px rgba(0,0,0,0.08),0px -12px 24px 12px rgba(0,0,0,0.04),0px -16px 48px 16px rgba(0,0,0,0.02)',
+    highRight:
+      '8px 0px 16px -8px rgba(0,0,0,0.08),12px 0px 24px 12px rgba(0,0,0,0.04),16px 0px 48px 16px rgba(0,0,0,0.02)',
+    highDown:
+      '0px 8px 16px -8px rgba(0,0,0,0.08),0px 12px 24px 12px rgba(0,0,0,0.04),0px 16px 48px 16px rgba(0,0,0,0.02)',
+    highLeft:
+      '-8px 0px 16px -8px rgba(0,0,0,0.08),-12px 0px 24px 12px rgba(0,0,0,0.04),-16px 0px 48px 16px rgba(0,0,0,0.02)',
   },
 };
 

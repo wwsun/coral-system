@@ -24,7 +24,7 @@ export type SpaceTokenType = 's' | 'm' | 'l' | 'xl' | 'xxl';
 export type FontSizeTokenType = 'note' | 'body' | 'subtitle' | 'title' | 'subheader' | 'header';
 export type BorderTokenType = 'solid' | 'dashed';
 export type RadiiTokenType = 's' | 'm' | 'l';
-export type ShadowTokenType = 'lowUp' | 'lowDown' | 'lowLeft' | 'lowRight' | 'median' | 'high';
+export type ShadowTokenType = 'lowUp' | 'lowDown' | 'lowLeft' | 'lowRight' | 'medianUp' | 'medianDown' | 'medianLeft' | 'medianRight' | 'highUp' | 'highDown' | 'highLeft' | 'highRight';
 
 // TODO: FIXME
 type SpaceTokenValue = SpaceTokenType | StringOrNumber;
