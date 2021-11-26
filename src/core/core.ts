@@ -1,17 +1,17 @@
 import { assign } from 'lodash-es';
-import { getToken, sizes, lineHeights, colors, shadows, borders } from '../helpers';
+import { getToken, sizes, space, radii, fontSizes, lineHeights, colors, shadows, borders } from '../helpers';
 import { SystemScaleType } from '../types';
 
 const getRawValue = (value: any) => value;
 
 const getValueMap = {
-  space: sizes,
-  fontSizes: sizes,
   colors,
+  fontSizes,
   lineHeights,
+  space,
   sizes,
   borders,
-  radii: sizes,
+  radii,
   shadows,
   zIndices: getToken,
 };
