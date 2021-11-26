@@ -12,7 +12,7 @@ export default {
  */
 export function Columns() {
   return (
-    <Grid columns={3} spacing={12}>
+    <Grid columns={3} spacing="l">
       <Box bg="brand" height="80px" />
       <Box bg="brand" height="80px" />
       <Box bg="brand" height="80px" />
@@ -28,7 +28,7 @@ export function Columns() {
  */
 export function AutoResponsive() {
   return (
-    <Grid minChildWidth="120px" spacing="12px">
+    <Grid minChildWidth="120px" spacing="l">
       <Box bg="brand" height="80px" />
       <Box bg="brand" height="80px" />
       <Box bg="brand" height="80px" />
@@ -44,7 +44,7 @@ export function AutoResponsive() {
  */
 export function Spacing() {
   return (
-    <Grid columns={3} spacingX={6} spacingY={12}>
+    <Grid columns={3} spacingX="m" spacingY="l">
       <Box bg="brand" height="80px" />
       <Box bg="brand" height="80px" />
       <Box bg="brand" height="80px" />
@@ -72,7 +72,7 @@ export function ColSpan() {
  */
 export function Complex() {
   return (
-    <Grid height="200px" templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)" spacing="4px">
+    <Grid height="200px" templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)" spacing="m">
       <GridItem rowSpan={2} colSpan={1} bg="black" />
       <GridItem colSpan={2} bg="orange" />
       <GridItem colSpan={2} bg="orange" />
@@ -83,7 +83,7 @@ export function Complex() {
 
 export function StartEnd() {
   return (
-    <Grid templateColumns="repeat(5, 1fr)" spacing="4px">
+    <Grid templateColumns="repeat(5, 1fr)" spacing="m">
       <GridItem colSpan={2} height="40px" bg="tomato" />
       <GridItem colStart={4} colEnd={6} height="40px" bg="papayawhip" />
     </Grid>

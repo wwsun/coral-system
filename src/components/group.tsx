@@ -1,8 +1,9 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 import { StringOrNumber } from '../types';
 import { space } from '../helpers';
 import { Box, BoxProps } from './box';
+import { useSystem } from '../provider';
 
 const attachedStyle = css`
   > *:first-child:not(:last-child) {
@@ -26,16 +27,12 @@ const attachedStyle = css`
 
 const normalStyle = css<any>`
   > *:not(:last-child) {
-    margin-right: ${(props) => props.$spacingX};
-    margin-bottom: ${(props) => props.$spacingY};
+    margin-right: ${(props) => props['data-gapx']};
+    margin-bottom: ${(props) => props['data-gapy']};
   }
 `;
 
-const GroupBox = styled(Box)<any>`
-  ${(props) => (props.$attached ? attachedStyle : normalStyle)};
-`;
-
-export interface GroupProps extends Omit<BoxProps, 'as'> {
+export interface GroupProps extends BoxProps {
   /**
    * 是否吸附在一起
    */
@@ -51,18 +48,19 @@ export interface GroupProps extends Omit<BoxProps, 'as'> {
 }
 
 export const Group = React.forwardRef<HTMLDivElement, GroupProps>((props, ref) => {
-  const { attached, spacingX = 'm', spacingY = 0, children, ...rest } = props;
+  const { attached, spacingX = 'm', spacingY = 0, css, children, ...rest } = props;
+  const { prefix } = useSystem();
   return (
-    <GroupBox
+    <Box
       ref={ref}
       role="group"
       display="inline-block"
-      $attached={attached}
-      $spacingX={space(spacingX)}
-      $spacingY={space(spacingY)}
+      css={[attached ? attachedStyle : normalStyle, css]}
+      data-gapx={space(spacingX, prefix)}
+      data-gapy={space(spacingY, prefix)}
       {...rest}
     >
       {children}
-    </GroupBox>
+    </Box>
   );
 });

@@ -1,4 +1,6 @@
+import React from 'react';
 import CSS from 'csstype';
+import type { FlattenInterpolation } from 'styled-components';
 
 export type StringOrNumber = string | number;
 
@@ -24,10 +26,36 @@ export type SpaceTokenType = 's' | 'm' | 'l' | 'xl' | 'xxl';
 export type FontSizeTokenType = 'note' | 'body' | 'subtitle' | 'title' | 'subheader' | 'header';
 export type BorderTokenType = 'solid' | 'dashed';
 export type RadiiTokenType = 's' | 'm' | 'l';
-export type ShadowTokenType = 'lowUp' | 'lowDown' | 'lowLeft' | 'lowRight' | 'medianUp' | 'medianDown' | 'medianLeft' | 'medianRight' | 'highUp' | 'highDown' | 'highLeft' | 'highRight';
+export type ShadowTokenType =
+  | 'lowUp'
+  | 'lowDown'
+  | 'lowLeft'
+  | 'lowRight'
+  | 'medianUp'
+  | 'medianDown'
+  | 'medianLeft'
+  | 'medianRight'
+  | 'highUp'
+  | 'highDown'
+  | 'highLeft'
+  | 'highRight';
 
 // TODO: FIXME
 type SpaceTokenValue = SpaceTokenType | StringOrNumber;
+
+/**
+ * 基础类型定义
+ */
+export interface CoralSystemProps extends Omit<React.HTMLAttributes<HTMLElement>, 'color'> {
+  /**
+   * 渲染的 HTML 元素
+   */
+  as?: string | React.ComponentType<any>;
+  /**
+   * 自定义样式，传入 css`` 的结果
+   */
+  css?: FlattenInterpolation<any> | FlattenInterpolation<any>[];
+}
 
 export interface SpaceProps {
   m?: SpaceTokenValue;

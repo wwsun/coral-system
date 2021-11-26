@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react';
 import { Box, BoxProps } from './box';
-import { StringOrNumber, SpaceProps } from '../types';
 import { isNumber, space } from '../helpers';
+import { useSystem } from '../provider';
+import type { StringOrNumber, SpaceProps } from '../types';
+
 
 export interface GridProps extends BoxProps {
   /**
@@ -49,15 +51,15 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>((props, ref) => {
     templateArea,
     ...rest
   } = props;
-
+  const { prefix } = useSystem();
   const templateColumns = minChildWidth ? widthToColumns(minChildWidth) : countToColumns(columns);
 
   return (
     <Box
       display="grid"
-      gridGap={space(spacing)}
-      gridColumnGap={space(spacingX)}
-      gridRowGap={space(spacingY)}
+      gridGap={space(spacing, prefix)}
+      gridColumnGap={space(spacingX, prefix)}
+      gridRowGap={space(spacingY, prefix)}
       gridTemplateColumns={templateColumnsProp || templateColumns}
       gridTemplateRows={templateRows}
       gridArea={area}

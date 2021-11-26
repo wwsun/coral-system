@@ -37,4 +37,4 @@ const injectStyle = css`
   user-select: none;
 `;
 
-export const custom = () => <Box css={injectStyle}>coral system</Box>;
+export const Custom = () => <Box css={injectStyle}>coral system</Box>;

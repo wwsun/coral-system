@@ -3,7 +3,6 @@ import { ThemeProvider } from 'styled-components';
 import { assign } from 'lodash-es';
 import { defaultTheme, ThemeType } from '../theme';
 import { getTokenValue, isValidTokenPath, getToken, DEFAULT_PREFIX } from '../helpers';
-import { SystemScaleType } from '../types';
 import { CssVariables } from './global-styles';
 
 const SystemContext = createContext({
@@ -41,9 +40,8 @@ function themeToVariables(obj: ThemeType, prefix: string) {
       let val = obj[key];
 
       if (isValidTokenPath(val)) {
-        const scale = val.split('.')[0] as SystemScaleType;
         const rootPrefix = getRootPrefix(prefix);
-        val = getToken(val, scale, rootPrefix);
+        val = getToken(val, rootPrefix);
       }
 
       paths.push([keypath, val]);

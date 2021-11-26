@@ -59,12 +59,12 @@ function createParser(config: any) {
 
       const sx = config[key];
       const raw = props[key];
-      const scale = sx.scale;
+      // const scale = sx.scale;
 
       // TODO: raw is object
       // TODO: raw is responsive object
 
-      assign(styles, sx(raw, scale, prefix));
+      assign(styles, sx(raw, prefix));
     }
 
     return styles;
@@ -91,7 +91,7 @@ export interface StyleProp {
   /**
    * 自定义值的获取
    */
-  getValue?: (value: any, scale?: SystemScaleType) => any;
+  getValue?: (value: any, prefix?: string) => any;
 }
 
 export type StylePropConfig = Record<string, StyleProp | boolean>;
@@ -99,9 +99,9 @@ export type StylePropConfig = Record<string, StyleProp | boolean>;
 function createStyleFunction({ properties: propertiesProp, property, scale, getValue: getValueProp }: StyleProp) {
   const properties = propertiesProp || [property];
   const getValue = getValueProp || getValueMap[scale] || getRawValue;
-  const sx = (value: any, scale: string, prefix: string) => {
+  const sx = (value: any, prefix: string) => {
     const result = {};
-    const n = getValue(value, scale, prefix);
+    const n = getValue(value, prefix);
     if (n === null) {
       return;
     }

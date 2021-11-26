@@ -10,6 +10,9 @@
 - [x] 支持 css variables
 - [x] 支持 prefix 自定义
 - [x] 提供标准化的 Design Token 支持
+- [x] css 传入自定义属性 `css={css}`
+- [x] css 逻辑的动态表达 `css=[css1, css2]`
+- [ ] SystemProvider 支持主题快速生成：`primaryColor="hexColor"`
 - [ ] 提供 FusionDesign 主题的导入支持
 - [ ] 响应式支持
 - [ ] 常用伪类支持 _hover...

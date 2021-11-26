@@ -1,8 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import { css } from 'styled-components';
 import { Box, BoxProps } from './box';
 import { space, toPercent, toNumber } from '../helpers';
-import { StringOrNumber, SpaceProps } from '../types';
+import { useSystem } from '../provider';
+import type { StringOrNumber, SpaceProps } from '../types';
 
 export interface FlexProps extends BoxProps {
   /**
@@ -27,20 +28,22 @@ export interface FlexProps extends BoxProps {
   shrink?: BoxProps['flexShrink'];
 }
 
-const StyledFlex = styled(Box)<FlexProps>`
+const FlexStyle = css<any>`
   & > *:not(style) ~ *:not(style) {
-    margin-top: ${(props) => props.flexDirection === 'column' && space(props.spacing)};
-    margin-left: ${(props) => props.flexDirection === 'row' && space(props.spacing)};
-    margin-bottom: ${(props) => props.flexDirection === 'column-reverse' && space(props.spacing)};
-    margin-right: ${(props) => props.flexDirection === 'row-reverse' && space(props.spacing)};
+    margin-top: ${(props) => props.flexDirection === 'column' && props['data-gap']};
+    margin-left: ${(props) => props.flexDirection === 'row' && props['data-gap']};
+    margin-bottom: ${(props) => props.flexDirection === 'column-reverse' && props['data-gap']};
+    margin-right: ${(props) => props.flexDirection === 'row-reverse' && props['data-gap']};
   }
 `;
 
 export const Flex = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
-  const { direction = 'row', align, justify, wrap, flex, basis, grow, shrink, ...rest } = props;
+  const { direction = 'row', spacing, align, justify, wrap, flex, basis, grow, shrink, css, ...rest } = props;
+  const { prefix } = useSystem();
+  const gap = space(spacing, prefix);
 
   return (
-    <StyledFlex
+    <Box
       ref={ref}
       display="flex"
       flexDirection={direction}
@@ -50,6 +53,8 @@ export const Flex = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => 
       flexBasis={basis}
       flexGrow={grow}
       flexShrink={shrink}
+      css={[FlexStyle, css]}
+      data-gap={gap}
       {...rest}
     />
   );

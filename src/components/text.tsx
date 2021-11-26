@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { textStyledProps, shouldForwardProp } from '../core';
-import { TypographyProps, ColorProps } from '../types';
+import { textStyledProps, cssProps, shouldForwardProp } from '../core';
+import type { CoralSystemProps, TypographyProps, ColorProps } from '../types';
 
 const truncatedStyle = css`
   display: block;
@@ -24,13 +24,13 @@ const SystemText = styled('span').withConfig({
   },
 })<any>`
   ${textStyledProps}
+  ${cssProps}
 
   ${(props) => props.$lineClamp > 0 && textClampStyle};
   ${(props) => props.$truncated && truncatedStyle};
 `;
 
-export interface TextProps extends TypographyProps, ColorProps {
-  as?: any;
+export interface TextProps extends CoralSystemProps, TypographyProps, ColorProps {
   align?: TypographyProps['textAlign'];
   /**
    * 是否在容器内自动截断（单行展示）
@@ -40,9 +40,6 @@ export interface TextProps extends TypographyProps, ColorProps {
    * 最多展示的行数（超出截断）
    */
   lineClamp?: number;
-  className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
 }
 
 export const Text = React.forwardRef<HTMLSpanElement, TextProps>((props, ref) => {

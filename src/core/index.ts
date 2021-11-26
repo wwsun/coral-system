@@ -16,6 +16,13 @@ const createShouldForwardProp = (props: string[]) => {
   return memoize((prop) => isPropValid(prop) && !regex.test(prop));
 };
 
+export const cssProps = (props: any) => {
+  if (Array.isArray(props.css)) {
+    return props.css.join();
+  }
+  return props.css;
+};
+
 export const allStyledProps = compose(layout, typography, flexbox, grid, position, color, border, space, shadow);
 
 export const textStyledProps = compose(typography, color);

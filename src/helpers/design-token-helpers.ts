@@ -54,8 +54,8 @@ const tokenPathToVariable = (token: string, prefix: string) => {
 
 type TokenGetterType = (token: any) => any;
 
-function tokenGetterFactory(defaultScale?: SystemScaleType, getter?: TokenGetterType) {
-  return (token: StringOrNumber, scale: SystemScaleType = defaultScale, prefix = DEFAULT_PREFIX) => {
+function tokenGetterFactory(scale?: SystemScaleType, getter?: TokenGetterType) {
+  return (token: StringOrNumber, prefix = DEFAULT_PREFIX) => {
     if (isNil(token)) {
       return;
     }
@@ -66,7 +66,7 @@ function tokenGetterFactory(defaultScale?: SystemScaleType, getter?: TokenGetter
         return temp;
       }
     }
-    
+
     if (typeof token === 'number') {
       return token;
     }
