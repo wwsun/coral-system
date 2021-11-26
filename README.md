@@ -12,6 +12,9 @@
 - [x] 提供标准化的 Design Token 支持
 - [ ] 提供 FusionDesign 主题的导入支持
 - [ ] 响应式支持
+- [ ] 常用伪类支持 _hover...
+- [ ] 常用布局原子：List/...
+- [ ] pointerEvents
 
 ## Usage
 

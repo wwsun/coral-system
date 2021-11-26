@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box } from 'coral-system';
+import { css } from 'styled-components';
 
 export default {
   title: 'Box',
@@ -29,3 +30,11 @@ export const As = () => (
     hello
   </Box>
 );
+
+const injectStyle = css`
+  background: red;
+  color: white;
+  user-select: none;
+`;
+
+export const custom = () => <Box css={injectStyle}>coral system</Box>;
