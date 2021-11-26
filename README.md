@@ -41,24 +41,13 @@ $ yarn
 
 # start
 $ yarn start
-
-# Change version
-$ yarn version
-
-# publish
-$ npm publish
-
-# push
-$ git push
-
-# push tags
-$ git push --tags
 ```
-
-## Deploy documents
-
-deploy to github pages
+## Release
 
 ```bash
+# publish
+$ yarn release
+
+# deploy to github pages
 $ yarn story:deploy
 ```
