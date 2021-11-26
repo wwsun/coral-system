@@ -1,4 +1,5 @@
 {
   "yolo": "true",
+  "yarn": false,
   "contents": "dist"
 }
