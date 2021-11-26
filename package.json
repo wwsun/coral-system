@@ -14,6 +14,7 @@
     "build": "yarn build:esm",
     "build:esm": "tsc --project tsconfig.prod.json --outDir dist/esm/ --module ES2015",
     "clean": "rimraf dist/",
+    "release": "np",
     "story:build": "build-storybook --docs",
     "story:deploy": "storybook-to-ghpages -s story:build -o storybook-static"
   },
@@ -63,6 +64,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.10.1",
+    "np": "^7.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.0",
