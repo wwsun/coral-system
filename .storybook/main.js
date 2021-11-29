@@ -3,7 +3,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 module.exports = {
   stories: ['../docs/**/*.stories.tsx', '../docs/**/*.stories.tsx'],
 
-  addons: ['@storybook/addon-docs'],
+  addons: ['@storybook/addon-docs', 'storybook-addon-outline', '@storybook/addon-storysource'],
 
   babel: async (config) => {
     config.plugins.push('babel-plugin-styled-components');
