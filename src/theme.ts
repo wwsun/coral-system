@@ -180,11 +180,3 @@ export const defaultTheme: ThemeType = {
 export function extendTheme(overrides: ThemeType, baseTheme = defaultTheme) {
   return mergeWith({}, baseTheme, overrides);
 }
-
-extendTheme({
-  colors: {
-    primary: {
-      10: '#Fff',
-    },
-  },
-});

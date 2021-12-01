@@ -8,8 +8,14 @@ export default {
 };
 
 export const Basic = () => (
-  <Box display="inline-block" bg="gray.100" color="gray.10" p="l" borderRadius="s">
-    Hello World
+  <Box as="button" bg="#FF0000" color="#FFFFFF" fontSize="14px" px="12px" py="4px" border="0" borderRadius="99px">
+    Button
+  </Box>
+);
+
+export const ButtonWithToken = () => (
+  <Box as="button" bg="brand" color="white" fontSize="title" px="xl" py="m" border="0" borderRadius="99px">
+    Button
   </Box>
 );
 
