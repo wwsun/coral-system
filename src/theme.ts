@@ -20,9 +20,10 @@ type ThemeColorsType = {
   white?: string;
   brand?: string;
   highlight?: string;
-  text?: PartialRecord<'normal' | 'secondary', string>;
-  background?: PartialRecord<'normal', string>;
-  line?: PartialRecord<'normal', string>;
+  text?: Record<string, string>;
+  background?: Record<string, string>;
+  line?: Record<string, string>;
+  custom?: Record<string, string>;
 };
 
 export type ThemeType = {
