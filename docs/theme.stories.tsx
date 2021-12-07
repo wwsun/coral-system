@@ -2,7 +2,8 @@ import React from 'react';
 import { Box, extendTheme, SystemProvider } from 'coral-system';
 
 export default {
-  title: 'Theme',
+  title: 'ThemeProvider',
+  component: SystemProvider,
 };
 
 const newTheme = extendTheme({
@@ -14,7 +15,7 @@ const newTheme = extendTheme({
   },
 });
 
-export const Basic = () => {
+export const Basic = (args: any) => {
   // 自定义颜色必须使用完整的路径
   return (
     <SystemProvider theme={newTheme}>

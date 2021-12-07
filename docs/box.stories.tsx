@@ -7,19 +7,24 @@ export default {
   component: Box,
 };
 
-export const Basic = () => (
+/**
+ * 必须加 args 参数才能在 docs 中展示 codes，参考 https://github.com/storybookjs/storybook/issues/8104#issuecomment-932310244
+ * @param args 
+ * @returns 
+ */
+export const Basic = (args: any) => (
   <Box as="button" bg="#FF0000" color="#FFFFFF" fontSize="14px" px="12px" py="4px" border="0" borderRadius="99px">
     Button
   </Box>
 );
 
-export const ButtonWithToken = () => (
+export const ButtonWithToken = (args: any) => (
   <Box as="button" bg="brand" color="white" fontSize="title" px="xl" py="m" border="0" borderRadius="99px">
     Button
   </Box>
 );
 
-export const BorderBox = () => (
+export const BorderBox = (args: any) => (
   <Box>
     <Box border="solid" borderColor="line.normal" borderWidth={2}>
       border box
@@ -31,7 +36,7 @@ export const BorderBox = () => (
   </Box>
 );
 
-export const As = () => (
+export const As = (args: any) => (
   <Box as="button" borderRadius="m" bg="brand" color="white" px="l">
     hello
   </Box>
@@ -43,4 +48,4 @@ const injectStyle = css`
   user-select: none;
 `;
 
-export const Custom = () => <Box css={injectStyle}>coral system</Box>;
+export const Custom = (args: any) => <Box css={injectStyle}>coral system</Box>;

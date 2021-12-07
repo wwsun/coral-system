@@ -6,13 +6,13 @@ export default {
   component: Center,
 };
 
-export const Baisc = () => (
+export const Baisc = (args: any) => (
   <Center bg="tomato" height="100px" color="white">
     This is the Center
   </Center>
 );
 
-export const WithIcon = () => (
+export const WithIcon = (args: any) => (
   <Center size="40px" bg="tomato" color="white">
     <Text as="span" fontWeight="bold" fontSize="title">
       1
@@ -20,7 +20,7 @@ export const WithIcon = () => (
   </Center>
 );
 
-export const Square = () => (
+export const Square = (args: any) => (
   <Center size="40px" bg="tomato" color="white" borderRadius="100%">
     <Text as="span" fontWeight="bold" fontSize="title">
       1

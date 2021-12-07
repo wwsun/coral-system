@@ -7,7 +7,7 @@ export default {
   component: Group,
 };
 
-export const Basic = () => (
+export const Basic = (args: any) => (
   <Group>
     <button>left</button>
     <button>center</button>
@@ -15,7 +15,7 @@ export const Basic = () => (
   </Group>
 );
 
-export const Attached = () => (
+export const Attached = (args: any) => (
   <Group attached>
     <button>left</button>
     <button>center</button>
@@ -23,7 +23,7 @@ export const Attached = () => (
   </Group>
 );
 
-export const More = () => (
+export const More = (args: any) => (
   <Group attached>
     <Box display="inline-block" border="solid" borderColor="#000">
       haha
@@ -38,7 +38,7 @@ const injectStyle = css`
   background-color: red;
 `;
 
-export const Custom = () => (
+export const Custom = (args: any) => (
   <Group css={injectStyle}>
     <button>left</button>
     <button>center</button>

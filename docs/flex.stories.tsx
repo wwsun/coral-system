@@ -8,7 +8,7 @@ export default {
   subcomponents: { FlexItem },
 };
 
-export const Basic = () => (
+export const Basic = (args: any) => (
   <Flex spacing="l" direction="row">
     <Box width="40px" height="40px" bg="brand" color="white">
       1
@@ -22,7 +22,7 @@ export const Basic = () => (
   </Flex>
 );
 
-export const VerticalStack = () => (
+export const VerticalStack = (args: any) => (
   <Flex spacing="l" direction="column">
     <Box width="40px" height="40px" bg="brand" color="white">
       1
@@ -45,7 +45,7 @@ const Example = styled.div`
   }
 `;
 
-export const EqualCols = () => (
+export const EqualCols = (args: any) => (
   <Example>
     <Flex>
       <FlexItem className="flex-item">1/3</FlexItem>
@@ -55,7 +55,7 @@ export const EqualCols = () => (
   </Example>
 );
 
-export const ColSpan = () => (
+export const ColSpan = (args: any) => (
   <Example>
     <Flex>
       <FlexItem span={1} className="flex-item">1/12</FlexItem>
@@ -66,7 +66,7 @@ export const ColSpan = () => (
   </Example>
 );
 
-export const AutoCol = () => (
+export const AutoCol = (args: any) => (
   <Example>
     <Flex>
       <FlexItem className="flex-item">item</FlexItem>
@@ -76,7 +76,7 @@ export const AutoCol = () => (
   </Example>
 );
 
-export const JustifyAndAlign = () => (
+export const JustifyAndAlign = (args: any) => (
   <Example>
     <Flex justify="space-around">
       <FlexItem span="auto" className="flex-item">一个居中的盒子</FlexItem>

@@ -6,7 +6,7 @@ export default {
   component: Text,
 };
 
-export const Basic = () => (
+export const Basic = (args: any) => (
   <Flex spacing="l" direction="column">
     <Text fontSize="note">(note) In love with Hippo</Text>
     <Text fontSize="body" color="#FF0000">
@@ -19,7 +19,7 @@ export const Basic = () => (
   </Flex>
 );
 
-export const Truncate = () => (
+export const Truncate = (args: any) => (
   <Box width="600px" border="solid" borderColor="line.primary">
     <Text truncated>
       Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing
@@ -28,7 +28,7 @@ export const Truncate = () => (
   </Box>
 );
 
-export const LineClamp = () => (
+export const LineClamp = (args: any) => (
   <Box width="300px" p="l" border="solid" borderColor="line.primary">
     <Text lineClamp={2}>
       "The quick brown fox jumps over the lazy dog" is an English-language pangram—a sentence that contains all of the
@@ -37,7 +37,7 @@ export const LineClamp = () => (
   </Box>
 );
 
-export const As = () => (
+export const As = (args: any) => (
   <Box>
     <Text as="i">Italic</Text>
     <br />

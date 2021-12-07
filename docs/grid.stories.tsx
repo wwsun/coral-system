@@ -10,7 +10,7 @@ export default {
 /**
  * 多列
  */
-export function Columns() {
+export function Columns(args: any) {
   return (
     <Grid columns={3} spacing="l">
       <Box bg="brand" height="80px" />
@@ -26,7 +26,7 @@ export function Columns() {
 /**
  * 自动响应式
  */
-export function AutoResponsive() {
+export function AutoResponsive(args: any) {
   return (
     <Grid minChildWidth="120px" spacing="l">
       <Box bg="brand" height="80px" />
@@ -42,7 +42,7 @@ export function AutoResponsive() {
 /**
  * 间距
  */
-export function Spacing() {
+export function Spacing(args: any) {
   return (
     <Grid columns={3} spacingX="m" spacingY="l">
       <Box bg="brand" height="80px" />
@@ -58,7 +58,7 @@ export function Spacing() {
 /**
  * 不同列宽
  */
-export function ColSpan() {
+export function ColSpan(args: any) {
   return (
     <Grid height="100px" templateColumns="repeat(12, 1fr)" spacing="4px">
       <GridItem colSpan={4} bg="brand" />
@@ -70,7 +70,7 @@ export function ColSpan() {
 /**
  * 自定义用法
  */
-export function Complex() {
+export function Complex(args: any) {
   return (
     <Grid height="200px" templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)" spacing="m">
       <GridItem rowSpan={2} colSpan={1} bg="black" />
@@ -81,7 +81,7 @@ export function Complex() {
   );
 }
 
-export function StartEnd() {
+export function StartEnd(args: any) {
   return (
     <Grid templateColumns="repeat(5, 1fr)" spacing="m">
       <GridItem colSpan={2} height="40px" bg="tomato" />
