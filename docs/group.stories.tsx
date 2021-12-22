@@ -1,17 +1,35 @@
 import React from 'react';
 import { Box, Group } from 'coral-system';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export default {
   title: 'Group',
   component: Group,
 };
 
+
 export const Basic = (args: any) => (
   <Group>
-    <button>left</button>
-    <button>center</button>
-    <button>right</button>
+    <Box as="button">left</Box>
+    <Box as="button">center</Box>
+    <Box as="button">right</Box>
+  </Group>
+);
+
+const CustomTag = styled.span`
+  display: inline-block;
+  background-color: #666;
+  color: #FFF;
+  border-radius: 2px;
+  padding: 0px 8px;
+`;
+
+
+export const TagGroup = (args: any) => (
+  <Group display="inline-flex">
+    <CustomTag>left</CustomTag>
+    <CustomTag>center</CustomTag>
+    <CustomTag>right</CustomTag>
   </Group>
 );
 
@@ -35,11 +53,16 @@ export const More = (args: any) => (
 );
 
 const injectStyle = css`
-  background-color: red;
+  padding: 4px;
+
+  > button {
+    border: 0;
+    outline: none;
+  }
 `;
 
 export const Custom = (args: any) => (
-  <Group css={injectStyle}>
+  <Group bg="red" css={injectStyle}>
     <button>left</button>
     <button>center</button>
     <button>right</button>
