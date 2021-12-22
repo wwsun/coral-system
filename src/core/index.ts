@@ -18,7 +18,7 @@ const createShouldForwardProp = (props: string[]) => {
 
 export const cssProps = (props: any) => {
   if (Array.isArray(props.css)) {
-    return props.css.join();
+    return props.css.join('');
   }
   return props.css;
 };
