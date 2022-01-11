@@ -3,9 +3,9 @@ import { Box } from './box';
 import { isNumber, space } from '../helpers';
 import { useSystem } from '../provider';
 import { forwardRef } from '../forwad-ref';
-import type { StringOrNumber, CoralProps } from '../types';
+import type { StringOrNumber, CoralProps, HTMLCoralProps } from '../types';
 
-export interface GridProps extends CoralProps {
+export interface GridProps extends HTMLCoralProps<'div'> {
   /**
    * 列数
    */
@@ -70,7 +70,7 @@ export const Grid = forwardRef<GridProps, 'div'>((props, ref) => {
   );
 });
 
-export interface GridItemProps extends CoralProps {
+export interface GridItemProps extends HTMLCoralProps<'div'> {
   colSpan?: StringOrNumber;
   colStart?: CoralProps['gridColumnStart'];
   colEnd?: CoralProps['gridColumnEnd'];

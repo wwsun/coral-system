@@ -4,9 +4,9 @@ import { Box } from './box';
 import { space, toPercent, toNumber } from '../helpers';
 import { useSystem } from '../provider';
 import { forwardRef } from '../forwad-ref';
-import type { StringOrNumber, CoralProps } from '../types';
+import type { StringOrNumber, CoralProps, HTMLCoralProps } from '../types';
 
-export interface FlexProps extends CoralProps {
+export interface FlexProps extends HTMLCoralProps<'div'> {
   /**
    * 间距
    */
@@ -61,7 +61,7 @@ export const Flex = forwardRef<FlexProps, 'div'>((props, ref) => {
   );
 });
 
-export interface FlexItemProps extends CoralProps {
+export interface FlexItemProps extends HTMLCoralProps<'div'> {
   span?: StringOrNumber | 'auto';
 }
 

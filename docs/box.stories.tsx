@@ -9,8 +9,8 @@ export default {
 
 /**
  * 必须加 args 参数才能在 docs 中展示 codes，参考 https://github.com/storybookjs/storybook/issues/8104#issuecomment-932310244
- * @param args 
- * @returns 
+ * @param args
+ * @returns
  */
 export const Basic = (args: any) => (
   <Box as="button" bg="#FF0000" color="#FFFFFF" fontSize="14px" px="12px" py="4px" border="0" borderRadius="99px">
@@ -39,6 +39,12 @@ export const BorderBox = (args: any) => (
 export const As = (args: any) => (
   <Box as="button" borderRadius="m" bg="brand" color="white" px="l">
     hello
+  </Box>
+);
+
+export const Link = (args: any) => (
+  <Box as="a" href="https://www.163.com" target="_blank">
+    open 163.com
   </Box>
 );
 

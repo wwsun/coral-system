@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'styled-components';
-import { CoralProps, StringOrNumber } from '../types';
+import { HTMLCoralProps, StringOrNumber } from '../types';
 import { space } from '../helpers';
 import { Box } from './box';
 import { useSystem } from '../provider';
@@ -33,7 +33,7 @@ const normalStyle = css<any>`
   }
 `;
 
-export interface GroupProps extends CoralProps {
+export interface GroupProps extends HTMLCoralProps<'div'> {
   /**
    * 是否吸附在一起
    */

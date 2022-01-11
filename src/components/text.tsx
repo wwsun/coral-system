@@ -39,7 +39,6 @@ export interface TextProps {
 
 export const Text = coral<As, TextProps>('span', textStyle, {
   attrs: (props) => ({
-    color: 'text.normal',
     textAlign: props.align,
     $truncated: props.truncated,
     $lineClamp: props.lineClamp,

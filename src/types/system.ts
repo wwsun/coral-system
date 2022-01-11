@@ -186,6 +186,12 @@ export interface CoralProps extends SystemProps {
   css?: Interpolation<any>;
 }
 
+export type HTMLCoralProps<T extends As> = Omit<
+  PropsOf<T>,
+  T extends 'svg' ? 'ref' | 'children' | keyof SystemProps : 'ref' | keyof SystemProps
+> &
+  CoralProps & { as?: As };
+
 export type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = never> = Omit<
   Target,
   'transition' | 'as' | 'color' | OmitAdditionalProps
