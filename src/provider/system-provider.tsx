@@ -69,11 +69,11 @@ export interface SystemProviderProps {
 export function SystemProvider({ prefix = DEFAULT_PREFIX, theme = defaultTheme, children }: SystemProviderProps) {
   const context = useMemo(() => ({ theme, prefix }), [theme, prefix]);
   const variables = useMemo(() => themeToVariables(theme, prefix), [theme, prefix]);
-  const themeProviderValue = useMemo(() => assign({}, theme, { prefix }), [theme, prefix]);
+  const mergedTheme = useMemo(() => assign({}, theme, { prefix }), [theme, prefix]);
 
   return (
     <SystemContext.Provider value={context}>
-      <ThemeProvider theme={themeProviderValue}>
+      <ThemeProvider theme={mergedTheme}>
         <CssVariables variables={variables} />
         {children}
       </ThemeProvider>

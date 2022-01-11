@@ -27,6 +27,10 @@ type ThemeColorsType = {
 };
 
 export type ThemeType = {
+  /**
+   * css variable 前缀
+   */
+  prefix?: string;
   colors?: ThemeColorsType;
   space?: PartialRecord<SpaceTokenType, string>;
   fontSizes?: PartialRecord<FontSizeTokenType, string>;

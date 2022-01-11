@@ -1,5 +1,16 @@
 import { assign } from 'lodash-es';
-import { getToken, sizes, space, radii, fontSizes, lineHeights, colors, shadows, borders } from '../helpers';
+import {
+  getToken,
+  sizes,
+  space,
+  radii,
+  fontSizes,
+  lineHeights,
+  colors,
+  shadows,
+  borders,
+  DEFAULT_PREFIX,
+} from '../helpers';
 import { SystemScaleType } from '../types';
 
 const getRawValue = (value: any) => value;
@@ -52,7 +63,7 @@ function createParser(config: any) {
   const parse = (props: Record<string, any>) => {
     const styles = {};
 
-    const prefix = props.prefix || props.theme?.prefix || '--coral';
+    const prefix = props.prefix || props.theme?.prefix || DEFAULT_PREFIX;
 
     for (const key in props) {
       if (key === 'theme') continue;

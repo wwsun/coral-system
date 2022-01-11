@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { shouldForwardProp } from './core';
 import { CoralSystemProps } from './types';
+import { DEFAULT_PREFIX } from './helpers';
 
 interface CoralOption {
   /**
@@ -23,7 +24,7 @@ export function coral(
   css: CoralSystemProps['css'],
   options?: CoralOption,
 ) {
-  const prefix = options.prefix || '--coral';
+  const prefix = options.prefix || DEFAULT_PREFIX;
   const attrs = options.attrs || {};
   const shouldForward = options.shouldForwardProp || shouldForwardProp;
 
