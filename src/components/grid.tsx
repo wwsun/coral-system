@@ -1,11 +1,11 @@
-import React, { forwardRef } from 'react';
-import { Box, BoxProps } from './box';
+import React from 'react';
+import { Box } from './box';
 import { isNumber, space } from '../helpers';
 import { useSystem } from '../provider';
-import type { StringOrNumber, SpaceProps } from '../types';
+import { forwardRef } from '../forwad-ref';
+import type { StringOrNumber, CoralProps } from '../types';
 
-
-export interface GridProps extends BoxProps {
+export interface GridProps extends CoralProps {
   /**
    * 列数
    */
@@ -13,15 +13,15 @@ export interface GridProps extends BoxProps {
   /**
    * 间距
    */
-  spacing?: SpaceProps['m'];
+  spacing?: CoralProps['m'];
   /**
    * 水平方向间距
    */
-  spacingX?: SpaceProps['m'];
+  spacingX?: CoralProps['m'];
   /**
    * 垂直方向间距
    */
-  spacingY?: SpaceProps['m'];
+  spacingY?: CoralProps['m'];
   /**
    * 子元素最小宽度
    */
@@ -29,16 +29,16 @@ export interface GridProps extends BoxProps {
   /**
    * 定义每一列的宽度
    */
-  templateColumns?: BoxProps['gridTemplateColumns'];
+  templateColumns?: CoralProps['gridTemplateColumns'];
   /**
    * 定义每一行的高度
    */
-  templateRows?: BoxProps['gridTemplateRows'];
-  templateArea?: BoxProps['gridTemplateAreas'];
-  area?: BoxProps['gridArea'];
+  templateRows?: CoralProps['gridTemplateRows'];
+  templateArea?: CoralProps['gridTemplateAreas'];
+  area?: CoralProps['gridArea'];
 }
 
-export const Grid = forwardRef<HTMLDivElement, GridProps>((props, ref) => {
+export const Grid = forwardRef<GridProps, 'div'>((props, ref) => {
   const {
     columns,
     spacingX,
@@ -70,16 +70,16 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>((props, ref) => {
   );
 });
 
-export interface GridItemProps extends BoxProps {
+export interface GridItemProps extends CoralProps {
   colSpan?: StringOrNumber;
-  colStart?: BoxProps['gridColumnStart'];
-  colEnd?: BoxProps['gridColumnEnd'];
+  colStart?: CoralProps['gridColumnStart'];
+  colEnd?: CoralProps['gridColumnEnd'];
   rowSpan?: StringOrNumber;
-  rowStart?: BoxProps['gridRowEnd'];
-  rowEnd?: BoxProps['gridRowEnd'];
+  rowStart?: CoralProps['gridRowEnd'];
+  rowEnd?: CoralProps['gridRowEnd'];
 }
 
-export const GridItem = forwardRef<HTMLDivElement, GridItemProps>((props, ref) => {
+export const GridItem = forwardRef<GridItemProps, 'div'>((props, ref) => {
   const { colSpan = 'auto', colStart, colEnd, rowEnd, rowSpan = 'auto', rowStart, ...rest } = props;
   return (
     <Box

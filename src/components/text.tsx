@@ -1,7 +1,6 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { textStyledProps, cssProps, shouldForwardProp } from '../core';
-import type { CoralSystemProps, TypographyProps, ColorProps } from '../types';
+import { css } from 'styled-components';
+import { coral } from '../coral';
+import type { As, TypographyProps } from '../types';
 
 const truncatedStyle = css`
   display: block;
@@ -18,19 +17,15 @@ const textClampStyle = css<any>`
   -webkit-line-clamp: ${(props) => props.$lineClamp};
 `;
 
-const SystemText = styled('span').withConfig({
-  shouldForwardProp: (prop, defaultValidatorFn) => {
-    return shouldForwardProp(prop) && defaultValidatorFn(prop);
-  },
-})<any>`
-  ${textStyledProps}
-  ${cssProps}
-
+const textStyle = css<any>`
   ${(props) => props.$lineClamp > 0 && textClampStyle};
   ${(props) => props.$truncated && truncatedStyle};
 `;
 
-export interface TextProps extends CoralSystemProps, TypographyProps, ColorProps {
+export interface TextProps {
+  /**
+   * 文本对齐方式
+   */
   align?: TypographyProps['textAlign'];
   /**
    * 是否在容器内自动截断（单行展示）
@@ -42,10 +37,11 @@ export interface TextProps extends CoralSystemProps, TypographyProps, ColorProps
   lineClamp?: number;
 }
 
-export const Text = React.forwardRef<HTMLSpanElement, TextProps>((props, ref) => {
-  const { color = 'text.body', align, truncated, lineClamp, ...rest } = props;
-
-  return (
-    <SystemText ref={ref} textAligin={align} color={color} $truncated={truncated} $lineClamp={lineClamp} {...rest} />
-  );
+export const Text = coral<As, TextProps>('span', textStyle, {
+  attrs: (props) => ({
+    color: 'text.normal',
+    textAlign: props.align,
+    $truncated: props.truncated,
+    $lineClamp: props.lineClamp,
+  }),
 });

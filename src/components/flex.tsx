@@ -1,31 +1,32 @@
 import React from 'react';
 import { css } from 'styled-components';
-import { Box, BoxProps } from './box';
+import { Box } from './box';
 import { space, toPercent, toNumber } from '../helpers';
 import { useSystem } from '../provider';
-import type { StringOrNumber, SpaceProps } from '../types';
+import { forwardRef } from '../forwad-ref';
+import type { StringOrNumber, CoralProps } from '../types';
 
-export interface FlexProps extends BoxProps {
+export interface FlexProps extends CoralProps {
   /**
    * 间距
    */
-  spacing?: SpaceProps['m'];
+  spacing?: CoralProps['m'];
   /**
    * 子元素排列方向
    */
-  direction?: BoxProps['flexDirection'];
+  direction?: CoralProps['flexDirection'];
   /**
    * y 轴对齐方式
    */
-  align?: BoxProps['alignItems'];
+  align?: CoralProps['alignItems'];
   /**
    * x 轴对齐方式
    */
-  justify?: BoxProps['justifyContent'];
-  wrap?: BoxProps['flexWrap'];
-  basis?: BoxProps['flexBasis'];
-  grow?: BoxProps['flexGrow'];
-  shrink?: BoxProps['flexShrink'];
+  justify?: CoralProps['justifyContent'];
+  wrap?: CoralProps['flexWrap'];
+  basis?: CoralProps['flexBasis'];
+  grow?: CoralProps['flexGrow'];
+  shrink?: CoralProps['flexShrink'];
 }
 
 const FlexStyle = css<any>`
@@ -37,7 +38,7 @@ const FlexStyle = css<any>`
   }
 `;
 
-export const Flex = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
+export const Flex = forwardRef<FlexProps, 'div'>((props, ref) => {
   const { direction = 'row', spacing, align, justify, wrap, flex, basis, grow, shrink, css, ...rest } = props;
   const { prefix } = useSystem();
   const gap = space(spacing, prefix);
@@ -60,7 +61,7 @@ export const Flex = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => 
   );
 });
 
-export interface FlexItemProps extends BoxProps {
+export interface FlexItemProps extends CoralProps {
   span?: StringOrNumber | 'auto';
 }
 
@@ -75,7 +76,7 @@ const getWidth = (span: StringOrNumber) => {
   return toPercent(toNumber(span) / COLS_TOTAL);
 };
 
-export const FlexItem = React.forwardRef<HTMLDivElement, FlexItemProps>((props, ref) => {
+export const FlexItem = forwardRef<FlexItemProps, 'div'>((props, ref) => {
   const { span, flex: flexProp, ...rest } = props;
   const width = span ? getWidth(span) : undefined;
   const flex = width ? '0 0 auto' : '1 0 0%';

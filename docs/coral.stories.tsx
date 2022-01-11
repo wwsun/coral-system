@@ -25,3 +25,11 @@ export function Basic() {
     </Test>
   );
 }
+
+export function CustomPrefix() {
+  return (
+    <Test prefix="--test" bg="colors.gray.100" color="colors.gray.10">
+      hello
+    </Test>
+  );
+}

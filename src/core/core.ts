@@ -63,7 +63,7 @@ function createParser(config: any) {
   const parse = (props: Record<string, any>) => {
     const styles = {};
 
-    const prefix = props.prefix || props.theme?.prefix || DEFAULT_PREFIX;
+    const prefix = props.theme?.prefix || props.prefix || DEFAULT_PREFIX;
 
     for (const key in props) {
       if (key === 'theme') continue;

@@ -1,9 +1,10 @@
 import React from 'react';
 import { css } from 'styled-components';
-import { StringOrNumber } from '../types';
+import { CoralProps, StringOrNumber } from '../types';
 import { space } from '../helpers';
-import { Box, BoxProps } from './box';
+import { Box } from './box';
 import { useSystem } from '../provider';
+import { forwardRef } from '../forwad-ref';
 
 const attachedStyle = css`
   > *:first-child:not(:last-child) {
@@ -32,7 +33,7 @@ const normalStyle = css<any>`
   }
 `;
 
-export interface GroupProps extends BoxProps {
+export interface GroupProps extends CoralProps {
   /**
    * 是否吸附在一起
    */
@@ -47,7 +48,7 @@ export interface GroupProps extends BoxProps {
   spacingY?: StringOrNumber;
 }
 
-export const Group = React.forwardRef<HTMLDivElement, GroupProps>((props, ref) => {
+export const Group = forwardRef<GroupProps, 'div'>((props, ref) => {
   const { attached, spacingX = 'm', spacingY = 0, css, children, ...rest } = props;
   const { prefix } = useSystem();
   return (

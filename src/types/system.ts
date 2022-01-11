@@ -1,14 +1,6 @@
-import React from 'react';
 import CSS from 'csstype';
 import type { FlattenInterpolation } from 'styled-components';
-
-export type StringOrNumber = string | number;
-
-export type PartialRecord<K extends keyof any, T> = {
-  [P in K]?: T;
-};
-
-export type Length = string | 0 | number;
+import { StringOrNumber, Length } from './base';
 
 export type SystemScaleType =
   | 'colors'
@@ -42,20 +34,6 @@ export type ShadowTokenType =
 
 // TODO: FIXME
 type SpaceTokenValue = SpaceTokenType | StringOrNumber;
-
-/**
- * 基础类型定义
- */
-export interface CoralSystemProps extends Omit<React.HTMLAttributes<HTMLElement>, 'color'> {
-  /**
-   * 渲染的 HTML 元素
-   */
-  as?: string | React.ComponentType<any>;
-  /**
-   * 自定义样式，传入 css`` 的结果
-   */
-  css?: FlattenInterpolation<any> | FlattenInterpolation<any>[];
-}
 
 export interface SpaceProps {
   m?: SpaceTokenValue;
@@ -187,3 +165,67 @@ export interface ShadowProps {
   boxShadow?: BoxShadowValue;
   textShadow?: CSS.Property.TextShadow;
 }
+
+export type Interpolation<Props> = FlattenInterpolation<Props> | FlattenInterpolation<Props>[];
+
+export interface SystemProps
+  extends SpaceProps,
+    ColorProps,
+    LayoutProps,
+    TypographyProps,
+    FlexboxProps,
+    GridProps,
+    BorderProps,
+    PositionProps,
+    ShadowProps {}
+
+export interface CoralProps extends SystemProps {
+  /**
+   * 自定义样式，传入 css`` 的结果
+   */
+  css?: Interpolation<any>;
+}
+
+export type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = never> = Omit<
+  Target,
+  'transition' | 'as' | 'color' | OmitAdditionalProps
+>;
+
+export type RightJoinProps<SourceProps extends object = {}, OverrideProps extends object = {}> = OmitCommonProps<
+  SourceProps,
+  keyof OverrideProps
+> &
+  OverrideProps;
+
+export type MergeWithAs<
+  ComponentProps extends object,
+  AsProps extends object,
+  AdditionalProps extends object = {},
+  AsComponent extends As = As,
+> = RightJoinProps<ComponentProps, AdditionalProps> &
+  RightJoinProps<AsProps, AdditionalProps> & {
+    as?: AsComponent;
+  };
+
+export type As<Props = any> = React.ElementType<Props>;
+
+/**
+ * Extract the props of a React element or component
+ */
+export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
+  as?: As;
+};
+
+export type ComponentWithAs<Component extends As, Props extends object = {}> = {
+  <AsComponent extends As>(
+    props: MergeWithAs<React.ComponentProps<Component>, React.ComponentProps<AsComponent>, Props, AsComponent>,
+  ): JSX.Element;
+
+  displayName?: string;
+  propTypes?: React.WeakValidationMap<any>;
+  contextTypes?: React.ValidationMap<any>;
+  defaultProps?: Partial<any>;
+  id?: string;
+};
+
+export interface CoralComponent<T extends As, P = {}> extends ComponentWithAs<T, CoralProps & P> {}
