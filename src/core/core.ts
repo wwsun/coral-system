@@ -16,7 +16,7 @@ const getValueMap = {
   zIndices: getToken,
 };
 
-export const system = (args: any) => {
+export const system = (args: object) => {
   const config = {};
 
   const keys = Object.keys(args);
@@ -49,12 +49,14 @@ export const compose = (...parsers: any[]) => {
 };
 
 function createParser(config: any) {
-  const parse = (props: any) => {
+  const parse = (props: Record<string, any>) => {
     const styles = {};
 
-    const prefix = props.theme?.prefix || '--coral';
+    const prefix = props.prefix || props.theme?.prefix || '--coral';
 
     for (const key in props) {
+      if (key === 'theme') continue;
+      if (key === 'prefix') continue;
       if (!config[key]) continue;
 
       const sx = config[key];

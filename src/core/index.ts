@@ -23,9 +23,28 @@ export const cssProps = (props: any) => {
   return props.css;
 };
 
-export const allStyledProps = compose(layout, typography, flexbox, grid, position, color, border, space, shadow);
+// 基础属性
+const common = {
+  config: {
+    prefix: true,
+    theme: true,
+  },
+};
 
-export const textStyledProps = compose(typography, color);
+export const allStyledProps = compose(
+  common,
+  layout,
+  typography,
+  flexbox,
+  grid,
+  position,
+  color,
+  border,
+  space,
+  shadow,
+);
+
+export const textStyledProps = compose(common, typography, color);
 
 export const allStyledPropNames = allStyledProps.propNames;
 
