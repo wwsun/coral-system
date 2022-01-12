@@ -6,6 +6,7 @@
 
 ## Features
 
+- [x] 原子化 css 生成
 - [x] 支持 css in js
 - [x] 支持 css variables
 - [x] 支持 prefix 自定义
@@ -15,6 +16,7 @@
 - [x] Coral Factory: ` coral('input', css``, { prefix: '' }); `
 - [ ] SystemProvider 支持主题快速生成：`primaryColor="hexColor"`
 - [ ] 提供 FusionDesign 主题的导入支持
+- [ ] 提供 Antd 主题的导入支持
 - [ ] 响应式支持
 - [ ] 常用伪类支持 \_hover...
 - [ ] 常用布局原子：List/Center/...
@@ -31,6 +33,20 @@ function App() {
       <Box>hello</Box>
     </SystemProvider>
   );
+}
+```
+
+### Factory
+
+使用 coral 方法可以创建具备 style props 的组件。
+
+```tsx
+import { coral } from 'coral-system';
+
+const Section = coral('section');
+
+function App() {
+  return <Section bg="brand">hello</Section>
 }
 ```
 
