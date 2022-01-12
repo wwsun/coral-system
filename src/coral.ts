@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { shouldForwardProp, cssProps, allStyledProps } from './core';
 import type { CoralProps, As, CoralComponent } from './types';
-import { DEFAULT_PREFIX } from './helpers';
 
 interface CoralOption<P> {
   /**
@@ -21,14 +20,11 @@ interface CoralOption<P> {
 }
 
 export function coral<T extends As, P = {}>(component: T, css?: CoralProps['css'], options?: CoralOption<P>) {
-  const prefix = options?.prefix || DEFAULT_PREFIX;
   const attrs = typeof options?.attrs === 'function' ? options?.attrs : () => options?.attrs;
-  console.log(attrs);
   const shouldForward = options?.shouldForwardProp || shouldForwardProp;
-
   return styled(component as React.ComponentType<any>)
     .attrs((props) => ({
-      prefix: props.prefix || prefix,
+      prefix: props.prefix || options?.prefix,
       ...attrs(props),
     }))
     .withConfig({
