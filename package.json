@@ -1,6 +1,6 @@
 {
   "name": "coral-system",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "a lightweight style system with react ui primitives",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
