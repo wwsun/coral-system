@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from 'coral-system';
+import { Box, Button, Link } from 'coral-system';
 import { css } from 'styled-components';
 
 export default {
@@ -37,15 +37,24 @@ export const BorderBox = (args: any) => (
 );
 
 export const As = (args: any) => (
-  <Box as="button" borderRadius="m" bg="brand" color="white" px="l">
-    hello
-  </Box>
+  <Button
+    borderRadius="m"
+    bg="brand"
+    color="white"
+    px="l"
+    lineHeight={3}
+    onClick={(e) => {
+      console.log(e);
+    }}
+  >
+    Simple Button
+  </Button>
 );
 
-export const Link = (args: any) => (
-  <Box as="a" href="https://www.163.com" target="_blank">
+export const AnchorLink = (args: any) => (
+  <Link href="https://www.163.com" target="_blank">
     open 163.com
-  </Box>
+  </Link>
 );
 
 const injectStyle = css`
