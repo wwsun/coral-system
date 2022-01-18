@@ -106,6 +106,7 @@ export interface FlexboxProps {
   flexWrap?: CSS.Property.FlexWrap;
   flexDirection?: CSS.Property.FlexDirection;
   columnGap?: CSS.Property.ColumnGap;
+  rowGap?: CSS.Property.RowGap;
   // item
   flex?: CSS.Property.Flex<Length>;
   flexGrow?: CSS.Property.FlexGrow;

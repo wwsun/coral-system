@@ -58,10 +58,18 @@ export const EqualCols = (args: any) => (
 export const ColSpan = (args: any) => (
   <Example>
     <Flex>
-      <FlexItem span={1} className="flex-item">1/12</FlexItem>
-      <FlexItem span={2} className="flex-item">1/6</FlexItem>
-      <FlexItem span={3} className="flex-item">1/4</FlexItem>
-      <FlexItem span={6} className="flex-item">1/2</FlexItem>
+      <FlexItem span={1} className="flex-item">
+        1/12
+      </FlexItem>
+      <FlexItem span={2} className="flex-item">
+        1/6
+      </FlexItem>
+      <FlexItem span={3} className="flex-item">
+        1/4
+      </FlexItem>
+      <FlexItem span={6} className="flex-item">
+        1/2
+      </FlexItem>
     </Flex>
   </Example>
 );
@@ -70,7 +78,9 @@ export const AutoCol = (args: any) => (
   <Example>
     <Flex>
       <FlexItem className="flex-item">item</FlexItem>
-      <FlexItem span="auto" className="flex-item">动态宽度的内容</FlexItem>
+      <FlexItem span="auto" className="flex-item">
+        动态宽度的内容
+      </FlexItem>
       <FlexItem className="flex-item">item</FlexItem>
     </Flex>
   </Example>
@@ -79,7 +89,9 @@ export const AutoCol = (args: any) => (
 export const JustifyAndAlign = (args: any) => (
   <Example>
     <Flex justify="space-around">
-      <FlexItem span="auto" className="flex-item">一个居中的盒子</FlexItem>
+      <FlexItem span="auto" className="flex-item">
+        一个居中的盒子
+      </FlexItem>
     </Flex>
   </Example>
 );

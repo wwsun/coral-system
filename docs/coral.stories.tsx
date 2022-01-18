@@ -20,7 +20,7 @@ const Test = coral(
 
 export function Basic() {
   return (
-    <Test bg="colors.gray.100" color="colors.gray.10">
+    <Test bg="colors.gray.100" color="colors.gray.10" borderColor="colors.border.normal">
       hello
     </Test>
   );

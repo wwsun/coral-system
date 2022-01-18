@@ -7,7 +7,14 @@ const config: StylePropConfig = {
   justifyContent: true,
   flexWrap: true,
   flexDirection: true,
-  columnGap: true,
+  columnGap: {
+    property: 'columnGap',
+    scale: 'space',
+  },
+  rowGap: {
+    property: 'rowGap',
+    scale: 'space',
+  },
   // item
   flex: true,
   flexGrow: true,
