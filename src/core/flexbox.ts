@@ -15,6 +15,10 @@ const config: StylePropConfig = {
     property: 'rowGap',
     scale: 'space',
   },
+  gap: {
+    property: 'gap',
+    scale: 'space',
+  },
   // item
   flex: true,
   flexGrow: true,
