@@ -2,6 +2,7 @@
   "name": "coral-system",
   "version": "0.5.4",
   "description": "a lightweight style system with react ui primitives",
+  "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "files": [
@@ -12,8 +13,9 @@
     "prepublishOnly": "yarn clean && yarn build",
     "up": "yarn upgrade-interactive --latest",
     "start": "start-storybook -p 8008",
-    "build": "yarn build:esm",
+    "build": "yarn build:esm && yarn build:cjs",
     "build:esm": "tsc --project tsconfig.prod.json --outDir dist/esm/ --module ES2015",
+    "build:cjs": "tsc --project tsconfig.prod.json --outDir dist/cjs/ --module CommonJS",
     "clean": "rimraf dist/",
     "release": "np",
     "story:build": "build-storybook --docs",
