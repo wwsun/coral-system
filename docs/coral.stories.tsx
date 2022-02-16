@@ -1,5 +1,5 @@
 import React from 'react';
-import { coral, color } from 'coral-system';
+import { coral } from 'coral-system';
 import { css } from 'styled-components';
 
 export default {
@@ -10,8 +10,6 @@ const Test = coral(
   'div',
   css`
     background: red;
-
-    ${color}
   `,
   {
     prefix: '--music',

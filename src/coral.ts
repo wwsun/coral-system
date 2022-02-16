@@ -10,16 +10,23 @@ interface CoralOption<P> {
    */
   prefix?: string;
   /**
-   * additional props
+   * 附加的初始化属性集
    */
   attrs?: CoralProps | ((props?: P) => CoralProps);
   /**
-   * should forward props
+   * 是否转发 prop
    */
   shouldForwardProp?: (prop: any, defaultValidatorFn?: (prop: any) => boolean) => boolean;
 }
 
-export function coral<T extends As, P = {}>(component: T, css?: CoralProps['css'], options?: CoralOption<P>) {
+/**
+ * 创建一个 System Component
+ * @param component HTML 标签
+ * @param initCss 初始化的 CSS 样式
+ * @param options 自定义选项
+ * @returns react component
+ */
+export function coral<T extends As, P = {}>(component: T, initCss?: CoralProps['css'], options?: CoralOption<P>) {
   const attrs = typeof options?.attrs === 'function' ? options?.attrs : () => options?.attrs;
   const shouldForward = options?.shouldForwardProp || shouldForwardProp;
   return styled(component as React.ComponentType<any>)
@@ -30,8 +37,8 @@ export function coral<T extends As, P = {}>(component: T, css?: CoralProps['css'
     .withConfig({
       shouldForwardProp: shouldForward as any,
     })<any>`
+    ${initCss}
     ${allStyledProps}
     ${cssProps}
-    ${css}
   ` as CoralComponent<T, P>;
 }
