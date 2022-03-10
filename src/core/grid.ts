@@ -22,6 +22,12 @@ const config: StylePropConfig = {
   gridTemplateRows: true,
   gridTemplateAreas: true,
   gridArea: true,
+  gridColumnStart: true,
+  gridColumnEnd: true,
+  gridColumnSpan: true,
+  gridRowStart: true,
+  gridRowEnd: true,
+  gridRowSpan: true,
 };
 
 export const grid = system(config);

@@ -83,9 +83,9 @@ export function Complex(args: any) {
 
 export function StartEnd(args: any) {
   return (
-    <Grid templateColumns="repeat(5, 1fr)" spacing="m">
-      <GridItem colSpan={2} height="40px" bg="tomato" />
-      <GridItem colStart={4} colEnd={6} height="40px" bg="papayawhip" />
+    <Grid templateColumns="repeat(12, 1fr)" spacing="m">
+      <GridItem colStart={2} colSpan={2} height="40px" bg="tomato" />
+      <GridItem colStart={11} colEnd={13} height="40px" bg="orange" />
     </Grid>
   );
 }
