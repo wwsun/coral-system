@@ -114,12 +114,19 @@ export const defaultTheme: ThemeType = {
     text: {
       normal: 'rgba(0, 0, 0, 0.85)',
       secondary: 'rgba(0, 0, 0, 0.45)',
+
+      title: 'colors.gray.100', // 标题
+      body: 'colors.gray.80', // 正文
+      note: 'colors.gray.70', // 辅助文本
+      placeholder: 'colors.gray.40', // 占位，禁用
     },
     background: {
       normal: 'colors.gray.10',
+      secondary: 'colors.gray.20',
     },
     line: {
       normal: 'colors.gray.30',
+      secondary: 'colors.gray.40',
     },
   },
   space: {

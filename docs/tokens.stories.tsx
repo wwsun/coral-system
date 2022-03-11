@@ -34,16 +34,19 @@ const renderMap = {
 
 function TokenBlock({
   name,
+  comment,
   value,
   renderBlock = () => null,
 }: {
   name: string;
+  comment: string;
   value: string;
   renderBlock?: (value: string) => React.ReactNode;
 }) {
   return (
     <Flex px="l" py="s" borderBottom="solid" borderBottomColor="line.normal">
       <FlexItem>{name}</FlexItem>
+      <FlexItem>{comment}</FlexItem>
       <FlexItem>{value}</FlexItem>
       <FlexItem display="flex" alignItems="center">
         {renderBlock(value)}
@@ -51,6 +54,15 @@ function TokenBlock({
     </Flex>
   );
 }
+
+const commentMap = {
+  'colors-brand': '品牌色',
+  'colors-highlight': '高亮',
+  'colors-text-title': '标题',
+  'colors-text-body': '正文',
+  'colors-text-note': '辅助文本',
+  'colors-text-placeholder': '占位符，禁用色',
+};
 
 function TokenGroup({ title, tokens }: { title: string; tokens: Record<string, any> }) {
   const collecting = useMemo(() => {
@@ -82,7 +94,13 @@ function TokenGroup({ title, tokens }: { title: string; tokens: Record<string, a
       </Box>
       <Box>
         {Object.keys(collecting).map((token) => (
-          <TokenBlock key={token} name={token} value={collecting[token]} renderBlock={renderBlock} />
+          <TokenBlock
+            key={token}
+            name={token}
+            comment={commentMap[token]}
+            value={collecting[token]}
+            renderBlock={renderBlock}
+          />
         ))}
       </Box>
     </Box>
