@@ -1,6 +1,5 @@
 import React from 'react';
-import { coral } from 'coral-system';
-import { css } from 'styled-components';
+import { coral, css } from 'coral-system';
 
 export default {
   title: 'coral factory',

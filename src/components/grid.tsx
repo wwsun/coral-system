@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from './box';
 import { isNumber, space } from '../helpers';
 import { useSystem } from '../provider';
-import { forwardRef } from '../forwad-ref';
+import { forwardRef } from '../forward-ref';
 import type { StringOrNumber, CoralProps, HTMLCoralProps } from '../types';
 
 export interface GridProps extends HTMLCoralProps<'div'> {

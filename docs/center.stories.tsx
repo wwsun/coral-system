@@ -6,7 +6,7 @@ export default {
   component: Center,
 };
 
-export const Baisc = (args: any) => (
+export const Basic = (args: any) => (
   <Center bg="tomato" height="100px" color="white">
     This is the Center
   </Center>

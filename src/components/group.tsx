@@ -4,7 +4,7 @@ import { HTMLCoralProps, StringOrNumber } from '../types';
 import { space } from '../helpers';
 import { Box } from './box';
 import { useSystem } from '../provider';
-import { forwardRef } from '../forwad-ref';
+import { forwardRef } from '../forward-ref';
 
 const attachedStyle = css`
   > *:first-child:not(:last-child) {

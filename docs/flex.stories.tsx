@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import { FlexItem, Flex, Box } from 'coral-system';
+import { Flex, FlexItem, Box, coral, css } from 'coral-system';
 
 export default {
   title: 'Flex',
@@ -36,14 +35,17 @@ export const VerticalStack = (args: any) => (
   </Flex>
 );
 
-const Example = styled.div`
-  .flex-item {
-    padding: 12px 0;
-    background-color: #ddd;
-    border: 1px solid #ccc;
-    text-align: center;
-  }
-`;
+const Example = coral(
+  'div',
+  css`
+    .flex-item {
+      padding: 12px 0;
+      background-color: #ddd;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+  `,
+);
 
 export const EqualCols = (args: any) => (
   <Example>
