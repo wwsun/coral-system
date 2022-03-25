@@ -1,6 +1,6 @@
 # coral-system
 
-<img src="https://p6.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/13621181113/9412/2615/9087/b22a590895688efdb963138f57a41781.png" alt="coral" height="100px">
+<img src="https://user-images.githubusercontent.com/6984035/160110646-2e95c392-7f29-48f3-8970-f07a86b57553.png" alt="coral" height="100px">
 
 一个轻量级的样式系统和 React 布局原子组件库。
 
