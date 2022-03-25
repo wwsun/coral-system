@@ -1,5 +1,7 @@
 # coral-system
 
+<img src="https://p6.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/13621181113/9412/2615/9087/b22a590895688efdb963138f57a41781.png" alt="coral" height="100px">
+
 一个轻量级的样式系统和 React 布局原子组件库。
 
 文档地址：https://wwsun.github.io/coral-system/
@@ -14,13 +16,10 @@
 - [x] css 传入自定义属性 `css={css}`
 - [x] css 逻辑的动态表达 `css=[css1, css2]`
 - [x] Coral Factory: ` coral('input', css``, { prefix: '' }); `
-- [ ] SystemProvider 支持主题快速生成：`primaryColor="hexColor"`
 - [ ] 提供 FusionDesign 主题的导入支持
 - [ ] 提供 Antd 主题的导入支持
 - [ ] 响应式支持
 - [ ] 常用伪类支持 \_hover...
-- [ ] 常用布局原子：List/Center/...
-- [ ] pointerEvents
 
 ## Usage
 
@@ -41,12 +40,14 @@ function App() {
 使用 coral 方法可以创建具备 style props 的组件。
 
 ```tsx
-import { coral } from 'coral-system';
+import { coral, css } from 'coral-system';
 
-const Section = coral('section');
+const Section = coral('section', css`
+  /* your initial style */
+`);
 
 function App() {
-  return <Section bg="brand">hello</Section>
+  return <Section bg="brand">hello</Section>;
 }
 ```
 
