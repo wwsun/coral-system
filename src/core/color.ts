@@ -9,9 +9,13 @@ const config: StylePropConfig = {
     property: 'backgroundColor',
     scale: 'colors',
   },
+  background: {
+    property: 'background',
+    scale: 'colors',
+  },
   opacity: true,
 };
 
-config.bg = config.backgroundColor;
+config.bg = config.background;
 
 export const color = system(config);

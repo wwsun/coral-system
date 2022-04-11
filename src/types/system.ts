@@ -68,7 +68,8 @@ export interface SpaceProps {
 
 export interface ColorProps {
   color?: CSS.Property.Color;
-  bg?: CSS.Property.Color;
+  bg?: CSS.Property.Background;
+  background?: CSS.Property.Background;
   backgroundColor?: CSS.Property.Color;
   opacity?: CSS.Property.Opacity;
 }
@@ -199,11 +200,8 @@ export type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = neve
   'transition' | 'as' | 'color' | OmitAdditionalProps
 >;
 
-export type RightJoinProps<SourceProps extends object = {}, OverrideProps extends object = {}> = OmitCommonProps<
-  SourceProps,
-  keyof OverrideProps
-> &
-  OverrideProps;
+export type RightJoinProps<SourceProps extends object = {}, OverrideProps extends object = {}> =
+  OmitCommonProps<SourceProps, keyof OverrideProps> & OverrideProps;
 
 export type MergeWithAs<
   ComponentProps extends object,
@@ -226,7 +224,12 @@ export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
 
 export type ComponentWithAs<Component extends As, Props extends object = {}> = {
   <AsComponent extends As>(
-    props: MergeWithAs<React.ComponentProps<Component>, React.ComponentProps<AsComponent>, Props, AsComponent>,
+    props: MergeWithAs<
+      React.ComponentProps<Component>,
+      React.ComponentProps<AsComponent>,
+      Props,
+      AsComponent
+    >,
   ): JSX.Element;
 
   displayName?: string;
