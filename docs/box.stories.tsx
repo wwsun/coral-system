@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Link, css } from 'coral-system';
 
 export default {
-  title: 'Box',
+  title: 'components/Box',
   component: Box,
 };
 

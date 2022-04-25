@@ -11,9 +11,18 @@ const renderBorders = (value: string) => (
   <Box display="inline-block" height="32px" width="60px" borderColor="black" border={value} />
 );
 const renderRadii = (value: string) => (
-  <Box display="inline-block" size="32px" bg="brand" border="solid" borderColor="brand" borderRadius={value} />
+  <Box
+    display="inline-block"
+    size="32px"
+    bg="brand"
+    border="solid"
+    borderColor="brand"
+    borderRadius={value}
+  />
 );
-const renderShadows = (value: string) => <Box height="32px" width="60px" bg="white" boxShadow={value}></Box>;
+const renderShadows = (value: string) => (
+  <Box height="32px" width="60px" bg="white" boxShadow={value}></Box>
+);
 const renderSpace = (value: string) => (
   <Flex display="inline-flex" spacing={value}>
     {renderColor('brand')}
@@ -89,7 +98,14 @@ function TokenGroup({ title, tokens }: { title: string; tokens: Record<string, a
 
   return (
     <Box border="solid" borderColor="line.normal" mb="l">
-      <Box px="l" py="m" borderBottom="solid" borderBottomColor="line.normal" fontWeight="bold" fontSize="title">
+      <Box
+        px="l"
+        py="m"
+        borderBottom="solid"
+        borderBottomColor="line.normal"
+        fontWeight="bold"
+        fontSize="title"
+      >
         {title}
       </Box>
       <Box>

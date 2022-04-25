@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Grid, GridItem } from 'coral-system';
 
 export default {
-  title: 'Grid',
+  title: 'components/Grid',
   component: Grid,
   subcomponents: { GridItem },
 };

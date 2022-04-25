@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, Box, Flex } from 'coral-system';
 
 export default {
-  title: 'Text',
+  title: 'components/Text',
   component: Text,
 };
 
@@ -22,8 +22,8 @@ export const Basic = (args: any) => (
 export const Truncate = (args: any) => (
   <Box width="600px" border="solid" borderColor="line.primary">
     <Text truncated>
-      Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing
-      layouts and visual mockups.
+      Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries
+      for previewing layouts and visual mockups.
     </Text>
   </Box>
 );
@@ -31,8 +31,9 @@ export const Truncate = (args: any) => (
 export const LineClamp = (args: any) => (
   <Box width="300px" p="l" border="solid" borderColor="line.primary">
     <Text lineClamp={2}>
-      "The quick brown fox jumps over the lazy dog" is an English-language pangram—a sentence that contains all of the
-      letters of the English alphabet. Owing to its existence, Chakra was created.
+      "The quick brown fox jumps over the lazy dog" is an English-language pangram—a sentence that
+      contains all of the letters of the English alphabet. Owing to its existence, Chakra was
+      created.
     </Text>
   </Box>
 );

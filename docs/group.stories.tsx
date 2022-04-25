@@ -3,7 +3,7 @@ import { Box, Group } from 'coral-system';
 import styled, { css } from 'styled-components';
 
 export default {
-  title: 'Group',
+  title: 'components/Group',
   component: Group,
 };
 

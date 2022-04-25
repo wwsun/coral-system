@@ -2,7 +2,7 @@ import React from 'react';
 import { Center, Text } from 'coral-system';
 
 export default {
-  title: 'Center',
+  title: 'components/Center',
   component: Center,
 };
 

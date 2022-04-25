@@ -1,0 +1,56 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import * as box from './box.stories';
+import * as factory from './coral.stories';
+
+<Meta title="Introduction" />
+
+# 简介
+
+Coral 是一个轻量级的样式系统和 React 布局原子组件库。
+
+## 说明
+
+1. coral 的实现参考了 [styled-system](https://styled-system.com/)，但 styled-system 不支持 css variables，且必须使用 react context 传递 theme 对象。
+2. coral 提供了通过提供 [styled props](https://styled-system.com/table) 来实现快捷的样式自定义，支持随机类名，支持原子化 css。
+3. coral 提供了一组内置实现的快捷原子组件用来实现布局，你可以直接使用他们。
+4. coral 提供了一个工厂函数用来快速创建具备 styled props 的 react 原子组件。
+
+## 安装
+
+```bash
+yarn add coral-system
+
+# coral-system 依赖 styled-components，所以你需要额外安装它
+yarn add styled-components
+```
+
+## 基本用法
+
+一个最基本的例子
+
+<Canvas>
+  <Story name="basic">{box.Basic.bind({})}</Story>
+</Canvas>
+
+## 工厂函数 `coral`
+
+`coral` 可以用来创建自定义的具备 styled props 属性的原子组件。
+
+```jsx
+import { coral, css } from 'coral-system';
+
+const Test = coral(
+  'div',
+  css`
+    background: red;
+  `,
+  {
+    prefix: '--music',
+  },
+);
+```
+
+<Canvas>
+  <Story name="coral-factort">{factory.Basic.bind({})}</Story>
+</Canvas>

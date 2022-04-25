@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, FlexItem, Box, coral, css } from 'coral-system';
 
 export default {
-  title: 'Flex',
+  title: 'components/Flex',
   component: Flex,
   subcomponents: { FlexItem },
 };
