@@ -6,19 +6,32 @@ export default {
   component: Box,
 };
 
-/**
- * 必须加 args 参数才能在 docs 中展示 codes，参考 https://github.com/storybookjs/storybook/issues/8104#issuecomment-932310244
- * @param args
- * @returns
- */
 export const Basic = (args: any) => (
-  <Box as="button" bg="#FF0000" color="#FFFFFF" fontSize="14px" px="12px" py="4px" border="0" borderRadius="99px">
+  <Box
+    as="button"
+    bg="#FF0000"
+    color="#FFFFFF"
+    fontSize="14px"
+    px="12px"
+    py="4px"
+    border="0"
+    borderRadius="99px"
+  >
     Button
   </Box>
 );
 
 export const ButtonWithToken = (args: any) => (
-  <Box as="button" bg="brand" color="white" fontSize="title" px="xl" py="m" border="0" borderRadius="99px">
+  <Box
+    as="button"
+    bg="brand"
+    color="white"
+    fontSize="title"
+    px="xl"
+    py="m"
+    border="0"
+    borderRadius="99px"
+  >
     Button
   </Box>
 );
@@ -48,12 +61,6 @@ export const As = (args: any) => (
   >
     Simple Button
   </Button>
-);
-
-export const AnchorLink = (args: any) => (
-  <Link href="https://www.163.com" target="_blank">
-    open 163.com
-  </Link>
 );
 
 const injectStyle = css`

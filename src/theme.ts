@@ -21,6 +21,7 @@ type ThemeColorsType = {
   brand?: string;
   highlight?: string;
   text?: Record<string, string>;
+  link?: Record<string, string>;
   background?: Record<string, string>;
   line?: Record<string, string>;
   custom?: Record<string, string>;
@@ -119,6 +120,12 @@ export const defaultTheme: ThemeType = {
       body: 'colors.gray.80', // 正文
       note: 'colors.gray.70', // 辅助文本
       placeholder: 'colors.gray.40', // 占位，禁用
+    },
+    link: {
+      link: 'colors.primary.60',
+      focus: 'colors.primary.60',
+      hover: 'colors.primary.50',
+      active: 'colors.primary.70',
     },
     background: {
       normal: 'colors.gray.10',
