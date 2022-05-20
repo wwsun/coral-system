@@ -16,6 +16,7 @@ export const Basic = (args: any) => (
     py="4px"
     border="0"
     borderRadius="99px"
+    {...args}
   >
     Button
   </Box>
@@ -31,6 +32,7 @@ export const ButtonWithToken = (args: any) => (
     py="m"
     border="0"
     borderRadius="99px"
+    {...args}
   >
     Button
   </Box>
