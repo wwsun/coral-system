@@ -39,6 +39,10 @@ export interface GroupProps extends HTMLCoralProps<'div'> {
    */
   attached?: boolean;
   /**
+   * 是否占满一行
+   */
+  block?: boolean;
+  /**
    * 水平间距
    */
   spacingX?: StringOrNumber;
@@ -49,13 +53,13 @@ export interface GroupProps extends HTMLCoralProps<'div'> {
 }
 
 export const Group = forwardRef<GroupProps, 'div'>((props, ref) => {
-  const { attached, spacingX = 'm', spacingY = 0, css, children, ...rest } = props;
+  const { block, attached, spacingX = 'm', spacingY = 0, css, children, ...rest } = props;
   const { prefix } = useSystem();
   return (
     <Box
       ref={ref}
       role="group"
-      display="inline-block"
+      display={block ? 'block' : 'inline-block'}
       css={[attached ? attachedStyle : normalStyle, css]}
       data-gapx={space(spacingX, prefix)}
       data-gapy={space(spacingY, prefix)}

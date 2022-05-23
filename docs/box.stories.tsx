@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Link, css } from 'coral-system';
+import { Box, Button, css } from 'coral-system';
 
 export default {
   title: 'components/Box',

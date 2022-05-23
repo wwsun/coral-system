@@ -1,12 +1,13 @@
 import React from 'react';
 import { Box, Group } from 'coral-system';
+import { Button } from 'antd';
 import styled, { css } from 'styled-components';
+import 'antd/dist/antd.css';
 
 export default {
   title: 'components/Group',
   component: Group,
 };
-
 
 export const Basic = (args: any) => (
   <Group>
@@ -19,11 +20,10 @@ export const Basic = (args: any) => (
 const CustomTag = styled.span`
   display: inline-block;
   background-color: #666;
-  color: #FFF;
+  color: #fff;
   border-radius: 2px;
   padding: 0px 8px;
 `;
-
 
 export const TagGroup = (args: any) => (
   <Group display="inline-flex">
@@ -66,5 +66,12 @@ export const Custom = (args: any) => (
     <button>left</button>
     <button>center</button>
     <button>right</button>
+  </Group>
+);
+
+export const AntControls = () => (
+  <Group>
+    <Button>button</Button>
+    <Button>button</Button>
   </Group>
 );
