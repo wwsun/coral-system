@@ -108,7 +108,12 @@ export interface StyleProp {
 
 export type StylePropConfig = Record<string, StyleProp | boolean>;
 
-function createStyleFunction({ properties: propertiesProp, property, scale, getValue: getValueProp }: StyleProp) {
+function createStyleFunction({
+  properties: propertiesProp,
+  property,
+  scale,
+  getValue: getValueProp,
+}: StyleProp) {
   const properties = propertiesProp || [property];
   const getValue = getValueProp || getValueMap[scale] || getRawValue;
   const sx = (value: any, prefix: string) => {
