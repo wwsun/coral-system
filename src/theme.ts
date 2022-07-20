@@ -162,6 +162,8 @@ export const defaultTheme: ThemeType = {
     s: '2px',
     m: '4px',
     l: '8px',
+    xl: '12px',
+    xxl: '24px',
   },
   shadows: {
     lowUp:

@@ -17,7 +17,7 @@ export type SystemScaleType =
 export type SpaceTokenType = 's' | 'm' | 'l' | 'xl' | 'xxl';
 export type FontSizeTokenType = 'note' | 'body' | 'subtitle' | 'title' | 'subheader' | 'header';
 export type BorderTokenType = 'solid' | 'dashed';
-export type RadiiTokenType = 's' | 'm' | 'l';
+export type RadiiTokenType = 's' | 'm' | 'l' | 'xl' | 'xxl';
 export type ShadowTokenType =
   | 'lowUp'
   | 'lowDown'
