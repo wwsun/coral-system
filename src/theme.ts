@@ -113,8 +113,9 @@ export const defaultTheme: ThemeType = {
     brand: 'colors.primary.60',
     highlight: 'colors.error.50',
     text: {
-      normal: 'rgba(0, 0, 0, 0.85)',
-      secondary: 'rgba(0, 0, 0, 0.45)',
+      normal: 'colors.gray.90',
+      secondary: 'colors.gray.80',
+      disabled: 'colors.gray.40',
 
       title: 'colors.gray.100', // 标题
       body: 'colors.gray.80', // 正文
@@ -130,10 +131,12 @@ export const defaultTheme: ThemeType = {
     background: {
       normal: 'colors.gray.10',
       secondary: 'colors.gray.20',
+      disabled: 'colors.gray.10',
     },
     line: {
       normal: 'colors.gray.30',
       secondary: 'colors.gray.40',
+      disabled: 'colors.gray.30',
     },
   },
   space: {
