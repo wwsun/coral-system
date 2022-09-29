@@ -127,6 +127,7 @@ export const defaultTheme: ThemeType = {
       focus: 'colors.primary.60',
       hover: 'colors.primary.50',
       active: 'colors.primary.70',
+      disabled: 'colors.primary.10',
     },
     background: {
       normal: 'colors.gray.10',

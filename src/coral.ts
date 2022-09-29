@@ -26,7 +26,11 @@ interface CoralOption<P> {
  * @param options 自定义选项
  * @returns react component
  */
-export function coral<T extends As, P = {}>(component: T, initCss?: CoralProps['css'], options?: CoralOption<P>) {
+export function coral<T extends As, P = {}>(
+  component: T,
+  initCss?: CoralProps['css'],
+  options?: CoralOption<P>,
+): CoralComponent<T, P> {
   const attrs = typeof options?.attrs === 'function' ? options?.attrs : () => options?.attrs;
   const shouldForward = options?.shouldForwardProp || shouldForwardProp;
   return styled(component as React.ComponentType<any>)
@@ -40,5 +44,5 @@ export function coral<T extends As, P = {}>(component: T, initCss?: CoralProps['
     ${initCss}
     ${allStyledProps}
     ${cssProps}
-  ` as CoralComponent<T, P>;
+  `;
 }
