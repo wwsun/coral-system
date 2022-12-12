@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { assign } from 'lodash-es';
+import { assign } from 'lodash';
 import { defaultTheme, ThemeType } from '../theme';
 import { getTokenValue, isValidTokenPath, getToken, DEFAULT_PREFIX } from '../helpers';
 import { CssVariables } from './global-styles';

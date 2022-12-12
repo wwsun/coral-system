@@ -1,4 +1,4 @@
-import { get, hasIn, isNil } from 'lodash-es';
+import { get, hasIn, isNil } from 'lodash';
 import { defaultTheme } from '../theme';
 import { StringOrNumber, SystemScaleType } from '../types';
 

@@ -1,4 +1,4 @@
-import { assign } from 'lodash-es';
+import { assign } from 'lodash';
 import {
   getToken,
   sizes,
