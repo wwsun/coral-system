@@ -12,6 +12,7 @@ export type SystemScaleType =
   | 'space'
   | 'sizes'
   | 'zIndices'
+  | 'base'
   | 'components';
 
 export type SpaceTokenType = 's' | 'm' | 'l' | 'xl' | 'xxl';
@@ -167,6 +168,17 @@ type BoxShadowValue = ShadowTokenType | CSS.Property.BoxShadow;
 export interface ShadowProps {
   boxShadow?: BoxShadowValue;
   textShadow?: CSS.Property.TextShadow;
+}
+
+export interface BaseStyleProps {
+  visibility?: CSS.Property.Visibility;
+  whiteSpace?: CSS.Property.WhiteSpace;
+  userSelect?: CSS.Property.UserSelect;
+  pointerEvents?: CSS.Property.PointerEvents;
+  overflowWrap?: CSS.Property.OverflowWrap;
+  textOverflow?: CSS.Property.TextOverflow;
+  cursor?: CSS.Property.Cursor;
+  outline?: CSS.Property.Outline;
 }
 
 export type Interpolation<Props> = FlattenInterpolation<Props> | FlattenInterpolation<Props>[];

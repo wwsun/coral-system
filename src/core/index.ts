@@ -10,6 +10,7 @@ import { color } from './color';
 import { border } from './border';
 import { space } from './space';
 import { shadow } from './shadows';
+import { base } from './base';
 
 const createShouldForwardProp = (props: string[]) => {
   const regex = new RegExp(`^(${props.join('|')})$`);
@@ -33,6 +34,7 @@ const common = {
 
 export const allStyledProps = compose(
   common,
+  base,
   layout,
   typography,
   flexbox,
@@ -44,13 +46,14 @@ export const allStyledProps = compose(
   shadow,
 );
 
-export const textStyledProps = compose(common, typography, color);
+export const textStyledProps = compose(common, base, typography, color);
 
 export const allStyledPropNames = allStyledProps.propNames;
 
 export const shouldForwardProp = createShouldForwardProp(allStyledPropNames);
 
 export * from './core';
+export * from './base';
 export * from './layout';
 export * from './typography';
 export * from './flexbox';
