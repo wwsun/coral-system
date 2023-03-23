@@ -11,19 +11,33 @@ import {
 type ColorTokenSerialKeyType = 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100;
 type ColorTokenGroupType = PartialRecord<ColorTokenSerialKeyType, string>;
 type ThemeColorsType = {
-  primary?: ColorTokenGroupType;
-  gray?: ColorTokenGroupType;
-  error?: ColorTokenGroupType;
-  success?: ColorTokenGroupType;
-  warning?: ColorTokenGroupType;
   black?: string;
   white?: string;
   brand?: string;
   highlight?: string;
   text?: Record<string, string>;
+  text1?: string;
+  text2?: string;
+  text3?: string;
+  text4?: string;
+  text5?: string;
   link?: Record<string, string>;
-  background?: Record<string, string>;
   line?: Record<string, string>;
+  line1?: string;
+  line2?: string;
+  line3?: string;
+  line4?: string;
+  fill1?: string;
+  fill2?: string;
+  fill3?: string;
+  fill4?: string;
+  fill5?: string;
+  background?: Record<string, string>;
+  primary?: ColorTokenGroupType;
+  gray?: ColorTokenGroupType;
+  error?: ColorTokenGroupType;
+  success?: ColorTokenGroupType;
+  warning?: ColorTokenGroupType;
   custom?: Record<string, string>;
 };
 
@@ -139,6 +153,23 @@ export const defaultTheme: ThemeType = {
       secondary: 'colors.gray.40',
       disabled: 'colors.gray.30',
     },
+
+    line1: '#f2f3f5',
+    line2: '#e5e6eb',
+    line3: '#c9cdd4',
+    line4: '#86909c',
+
+    fill1: '#f7f8fa',
+    fill2: '#f2f3f5',
+    fill3: '#e5e6eb',
+    fill4: '#c9cdd4',
+    fill5: '#4e5969',
+
+    text1: '#1d2129',
+    text2: '#4e5969',
+    text3: '#86909c',
+    text4: '#c9cdd4',
+    text5: '#ffffff',
   },
   space: {
     s: '4px',

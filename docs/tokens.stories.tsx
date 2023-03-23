@@ -71,6 +71,20 @@ const commentMap = {
   'colors-text-body': '正文',
   'colors-text-note': '辅助文本',
   'colors-text-placeholder': '占位符，禁用色',
+  'colors-line1': '浅',
+  'colors-line2': '一般',
+  'colors-line3': '深，悬浮',
+  'colors-line4': '重，按钮描边',
+  'colors-fill1': '浅，禁用',
+  'colors-fill2': '一般，常规，白底悬浮',
+  'colors-fill3': '深，灰底悬浮',
+  'colors-fill4': '重，特殊场景',
+  'colors-fill5': '重，按钮描边',
+  'colors-text1': '强调，标题',
+  'colors-text2': '次强调，正文',
+  'colors-text3': '次要信息',
+  'colors-text4': '置灰信息',
+  'colors-text5': '白色文本',
 };
 
 function TokenGroup({ title, tokens }: { title: string; tokens: Record<string, any> }) {
