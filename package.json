@@ -37,7 +37,7 @@
   "homepage": "https://github.com/wwsun/coral-system#readme",
   "peerDependencies": {
     "react": ">= 16.8.0",
-    "styled-components": "4.x || 5.x"
+    "styled-components": "4.x || 5.x || 6.x"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.2.0",
