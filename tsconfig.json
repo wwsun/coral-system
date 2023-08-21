@@ -8,6 +8,7 @@
     "skipLibCheck": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": false,
     "allowJs": true,
