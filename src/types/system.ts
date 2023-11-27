@@ -95,6 +95,8 @@ export interface TypographyProps {
   fontStyle?: CSS.Property.FontStyle;
   letterSpacing?: CSS.Property.LetterSpacing;
   textAlign?: CSS.Property.TextAlign;
+  textOverflow?: CSS.Property.TextOverflow;
+  whiteSpace?: CSS.Property.WhiteSpace;
   fontSize?: FontSizeTokenType | string;
   fontWeight?: CSS.Property.FontWeight;
   lineHeight?: StringOrNumber;

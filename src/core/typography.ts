@@ -5,6 +5,8 @@ const config = {
   fontStyle: true,
   letterSpacing: true,
   textAlign: true,
+  textOverflow: true,
+  whiteSpace: true,
 
   fontSize: {
     property: 'fontSize',
